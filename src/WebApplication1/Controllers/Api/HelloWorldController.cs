@@ -1,6 +1,6 @@
-﻿using System.Text;
+﻿using System.Net;
+using System.Net.Http;
 using System.Web.Http;
-using System.Web.Mvc;
 
 namespace WebApplication1.Controllers.Api
 {
@@ -8,15 +8,16 @@ namespace WebApplication1.Controllers.Api
     {
         // GET: HelloWorld
         [System.Web.Mvc.HttpGet]
-        public JsonResult GetHelloWorld()
+        public HttpResponseMessage GetHelloWorld()
         {
-            dynamic result = new
-            {
-                Name = "Number",
-                Value = 1
-            };
+            HelloWorldNumber number = new HelloWorldNumber { Number = 1 };
 
-            return new JsonResult { Data = result, ContentType = "application/json" };
-        }
+            return Request.CreateResponse(HttpStatusCode.OK, number);
+        }       
+    }
+
+    public class HelloWorldNumber
+    {
+        public int Number { get; set; }
     }
 }
