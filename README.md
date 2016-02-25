@@ -1,3 +1,12 @@
-# NNUG_GAB2016
+NNUG - Global Azure Bootcamp 2016
+=================================
 
 [![Gitter](https://badges.gitter.im/HenrikWM/NNUG_GAB2016.svg)](https://gitter.im/HenrikWM/NNUG_GAB2016?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+This is a collection of workshop assignments that were given at NNUG's Global Azure Bootcamp 2016 @ Bouvet 16th of April 2016.
+
+## Assignments overview
+
+Using products and features in Microsoft Azure you will use two web apps to create content, a logic app to consume and do calculations, and lastly a third web app to receive and store the new insights. 
+
+[Proceed to the assignments](https://github.com/HenrikWM/NNUG_GAB2016/wiki)
