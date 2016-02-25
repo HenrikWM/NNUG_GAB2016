@@ -8,7 +8,7 @@ namespace WebApplication1.Controllers.Api
     {
         // GET: HelloWorld
         [System.Web.Mvc.HttpGet]
-        public HttpResponseMessage GetHelloWorld()
+        public HttpResponseMessage Get()
         {
             HelloWorldNumber number = new HelloWorldNumber { Number = 1 };
 

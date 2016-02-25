@@ -9,7 +9,7 @@ namespace WebApplication3.Controllers.Api
     {
         // POST: HelloWorld
         [HttpPost]
-        public HttpResponseMessage CreateHelloWorld([FromBody]int result)
+        public HttpResponseMessage Post([FromBody]int result)
         {
             Trace.WriteLine($"[HelloWorldController.Index] - called with: {result}");
 
