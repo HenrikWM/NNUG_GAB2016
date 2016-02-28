@@ -24,14 +24,14 @@
                 @Html.ValidationMessageFor(model => model.Navn)
             </div>
         </div>
-
-        @*<div class="form-group">
+        
+        <div class="form-group">
             @Html.LabelFor(model => model.Rolle, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Rolle)
+                @Html.EnumDropDownListFor(m => m.Rolle, "Velg en rolle", new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Rolle)
             </div>
-        </div>*@
+        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.Avdeling, new { @class = "control-label col-md-2" })

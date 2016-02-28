@@ -1,7 +1,6 @@
 ﻿using GAB.Core.Domain;
 using GAB.Core.Repositories;
 using GAB.Core.Repositories.InMemory;
-using GAB.Web.Personalregister.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,7 +52,6 @@ namespace GAB.Web.Personalregister.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
             Ansatt ansatt = db.Find(id.Value);
             if (ansatt == null)
             {
