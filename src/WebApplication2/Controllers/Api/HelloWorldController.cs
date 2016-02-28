@@ -2,7 +2,7 @@
 using System.Net.Http;
 using System.Web.Http;
 
-namespace WebApplication2.Controllers.Api
+namespace GAB.Web.Ressursplanlegging.Controllers.Api
 {
     public class HelloWorldController : ApiController
     {

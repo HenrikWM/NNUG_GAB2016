@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace WebApplication2
+namespace GAB.Web.Ressursplanlegging
 {
     public class RouteConfig
     {

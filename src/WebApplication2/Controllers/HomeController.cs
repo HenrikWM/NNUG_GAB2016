@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace WebApplication2.Controllers
+namespace GAB.Web.Ressursplanlegging.Controllers
 {
     public class HomeController : Controller
     {

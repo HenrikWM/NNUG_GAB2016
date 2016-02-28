@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace WebApplication2
+namespace GAB.Web.Ressursplanlegging
 {
     public class FilterConfig
     {

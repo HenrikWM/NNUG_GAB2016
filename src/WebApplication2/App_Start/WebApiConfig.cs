@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 
-namespace WebApplication2
+namespace GAB.Web.Ressursplanlegging
 {
     public static class WebApiConfig
     {

@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GAB.Web.Personalregister", "WebApplication1\GAB.Web.Personalregister.csproj", "{9416B57E-4BC0-476E-B93E-8C03BCFD5A27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication2", "WebApplication2\WebApplication2.csproj", "{44AF7D0F-4A95-4E49-A5E4-E5FA7C41001E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GAB.Web.Ressursplanlegging", "WebApplication2\GAB.Web.Ressursplanlegging.csproj", "{44AF7D0F-4A95-4E49-A5E4-E5FA7C41001E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication3", "WebApplication3\WebApplication3.csproj", "{ACF6E42C-42E2-4A04-8C32-8253ECC65FFA}"
 EndProject
