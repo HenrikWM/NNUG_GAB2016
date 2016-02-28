@@ -1,21 +1,20 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace GAB.Core.Domain
 {
-    public class Ansatt : Entity
+    public class Ansatt
     {
+        [JsonProperty(PropertyName = "id")]
+        public string Id { get; set; }
+
+        [JsonProperty(PropertyName = "navn")]
         public string Navn { get; set; }
+
+        [JsonProperty(PropertyName = "avdeling")]
         public string Avdeling { get; set; }
+
+        [JsonProperty(PropertyName = "rolle")]
         public Rolle? Rolle { get; set; }
-        
-        public static Ansatt Create(string navn, string avdeling, Rolle rolle)
-        {
-            return new Ansatt
-            {
-                Navn = navn,
-                Avdeling = avdeling,
-                Rolle = rolle
-            };
-        }
     }
 }
