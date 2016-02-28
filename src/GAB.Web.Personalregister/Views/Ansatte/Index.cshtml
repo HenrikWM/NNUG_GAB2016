@@ -1,0 +1,46 @@
+﻿@using GAB.Core.Domain
+
+@model IEnumerable<Ansatt>
+
+@{
+    ViewBag.Title = "Ansatte";
+}
+
+<h2>Ansatte</h2>
+
+<p>
+    @Html.ActionLink("Opprett ny", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Navn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rolle.Navn)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Avdeling)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (Ansatt item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Navn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rolle.Navn)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Avdeling)
+        </td>
+        <td>
+            @Html.ActionLink("Rediger", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Slett", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -20,5 +20,27 @@ namespace GAB.Core.Repositories.InMemory
         {
             return _repository.ToList();
         }
+
+        public Ansatt Find(Guid id)
+        {
+            return _repository.Find(o => o.Id == id);
+        }
+
+        public void Update(Ansatt ansatt)
+        {
+            Ansatt existing = Find(ansatt.Id);
+
+            _repository.Remove(existing);
+
+            _repository.Add(ansatt);
+        }
+
+        public void Delete(Guid id)
+        {
+            Ansatt ansatt = Find(id);
+
+            if (ansatt != null)
+                _repository.Remove(ansatt);
+        }
     }
 }

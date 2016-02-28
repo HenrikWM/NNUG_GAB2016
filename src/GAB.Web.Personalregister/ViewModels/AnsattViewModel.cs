@@ -1,6 +1,7 @@
 ﻿using GAB.Core.Domain;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -8,10 +9,16 @@ namespace GAB.Web.Personalregister.ViewModels
 {
     public class AnsattViewModel
     {
+        [ScaffoldColumn(false)]
         public string Id { get; internal set; }
 
+        [Required]
         public string Navn { get; internal set; }
+
+        [Required]
         public RolleViewModel Rolle { get; internal set; }
+
+        [Required]
         public string Avdeling { get; internal set; }
 
         internal static AnsattViewModel MapFromModel(Ansatt ansatt)

@@ -1,0 +1,50 @@
+﻿@using GAB.Core.Domain
+
+@model Ansatt
+
+@{
+    ViewBag.Title = "Slett";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Movie</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Navn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Navn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rolle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rolle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Avdeling)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Avdeling)
+        </dd>
+               
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Slett" class="btn btn-default" /> |
+            @Html.ActionLink("Tilbake til listen", "Index")
+        </div>
+    }
+</div>

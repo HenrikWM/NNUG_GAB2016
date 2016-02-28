@@ -12,5 +12,11 @@ namespace GAB.Core.Repositories
         void Add(T entity);
 
         IEnumerable<T> GetAll();
+
+        T Find(Guid id);
+
+        void Update(T entity);
+
+        void Delete(Guid id);
     }
 }
