@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace WebApplication3.Controllers
+namespace GAB.Web.Kapasitetsberegning.Controllers
 {
     public class HomeController : Controller
     {

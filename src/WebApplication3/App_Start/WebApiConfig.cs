@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 
-namespace WebApplication3
+namespace GAB.Web.Kapasitetsberegning
 {
     public static class WebApiConfig
     {

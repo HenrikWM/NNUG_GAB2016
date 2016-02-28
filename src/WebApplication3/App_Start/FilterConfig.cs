@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace WebApplication3
+namespace GAB.Web.Kapasitetsberegning
 {
     public class FilterConfig
     {
