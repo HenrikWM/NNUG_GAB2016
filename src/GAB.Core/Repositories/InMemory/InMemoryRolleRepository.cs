@@ -25,6 +25,11 @@ namespace GAB.Core.Repositories.InMemory
             };
         }
 
+        public void Add(Rolle entity)
+        {
+            _repository.Add(entity);
+        }
+
         public IEnumerable<Rolle> GetAll()
         {
             return _repository.ToList();

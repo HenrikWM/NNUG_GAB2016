@@ -10,6 +10,11 @@ namespace GAB.Core.Repositories.InMemory
     public class InMemoryAnsattRepository : IRepository<Ansatt>
     {
         private List<Ansatt> _repository = new List<Ansatt>();
+        
+        public void Add(Ansatt entity)
+        {
+            _repository.Add(entity);
+        }
 
         public IEnumerable<Ansatt> GetAll()
         {

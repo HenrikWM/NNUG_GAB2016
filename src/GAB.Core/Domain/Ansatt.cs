@@ -6,9 +6,9 @@ namespace GAB.Core.Domain
     {
         public string Navn { get; set; }
         public string Avdeling { get; set; }
-        public string Rolle { get; set; }
+        public Rolle Rolle { get; set; }
         
-        public static Ansatt Create(string navn, string avdeling, string rolle)
+        public static Ansatt Create(string navn, string avdeling, Rolle rolle)
         {
             return new Ansatt
             {

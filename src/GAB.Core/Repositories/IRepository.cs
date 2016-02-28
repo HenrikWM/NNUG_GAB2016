@@ -9,6 +9,8 @@ namespace GAB.Core.Repositories
 {
     public interface IRepository<T> where T : Entity
     {
+        void Add(T entity);
+
         IEnumerable<T> GetAll();
     }
 }
