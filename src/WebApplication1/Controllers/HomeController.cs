@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace WebApplication1.Controllers
+namespace GAB.Web.Personalregister.Controllers
 {
     public class HomeController : Controller
     {

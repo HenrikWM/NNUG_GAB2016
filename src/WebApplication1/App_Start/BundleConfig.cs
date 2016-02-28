@@ -1,6 +1,6 @@
 ﻿using System.Web.Optimization;
 
-namespace WebApplication1
+namespace GAB.Web.Personalregister
 {
     public class BundleConfig
     {

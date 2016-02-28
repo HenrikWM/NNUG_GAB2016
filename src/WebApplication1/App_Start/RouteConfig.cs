@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace WebApplication1
+namespace GAB.Web.Personalregister
 {
     public class RouteConfig
     {

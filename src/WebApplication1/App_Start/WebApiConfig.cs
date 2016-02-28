@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 
-namespace WebApplication1
+namespace GAB.Web.Personalregister
 {
     public static class WebApiConfig
     {
