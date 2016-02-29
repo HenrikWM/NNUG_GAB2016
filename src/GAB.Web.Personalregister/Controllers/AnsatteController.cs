@@ -13,6 +13,8 @@ namespace GAB.Web.Personalregister.Controllers
         // GET: /Ansatte/
         public ActionResult Index()
         {
+            ViewBag.Title = "Ansatte";
+
             IEnumerable<Ansatt> ansatte = DocumentDBRepository<Ansatt>.GetAllItems();
 
             return View(ansatte);
@@ -42,6 +44,8 @@ namespace GAB.Web.Personalregister.Controllers
         // GET: /Ansatte/Edit/649b608e-4adc-43b9-832e-1ac581fee88a
         public ActionResult Edit(string id)
         {
+            ViewBag.Title = "Rediger ansatt";
+
             if (string.IsNullOrEmpty(id))
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -70,6 +74,8 @@ namespace GAB.Web.Personalregister.Controllers
         // GET: /Ansatte/Delete/5
         public ActionResult Delete(string id)
         {
+            ViewBag.Title = "Slett ansatt";
+
             if (string.IsNullOrEmpty(id))
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
