@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GAB.Web.Ressursplanlegging"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GAB.Web.Kapasitetsberegning", "GAB.Web.Kapasitetsberegning\GAB.Web.Kapasitetsberegning.csproj", "{ACF6E42C-42E2-4A04-8C32-8253ECC65FFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GAB.Web.Rapporter", "GAB.Web.Rapporter\GAB.Web.Rapporter.csproj", "{7FCFDB18-07B8-41EA-9561-5DF83B778115}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GAB.Web.Rapportering", "GAB.Web.Rapportering\GAB.Web.Rapportering.csproj", "{7FCFDB18-07B8-41EA-9561-5DF83B778115}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GAB.Core", "GAB.Core\GAB.Core.csproj", "{00E81AC0-8D1F-44D3-8A42-FE11AE46FD05}"
 EndProject

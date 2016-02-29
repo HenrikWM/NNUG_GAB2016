@@ -1,7 +1,7 @@
-﻿using System.Web.Mvc;
-
-namespace GAB.Web.Rapporter.Controllers
+﻿namespace GAB.Web.Rapportering.Controllers
 {
+    using System.Web.Mvc;
+
     public class HomeController : Controller
     {
         public ActionResult Index()

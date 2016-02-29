@@ -1,7 +1,7 @@
-﻿using System.Web.Mvc;
-
-namespace GAB.Web.Rapporter
+﻿namespace GAB.Web.Rapportering
 {
+    using System.Web.Mvc;
+
     public class FilterConfig
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
