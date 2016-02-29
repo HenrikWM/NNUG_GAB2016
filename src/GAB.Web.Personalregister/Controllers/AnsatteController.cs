@@ -39,7 +39,7 @@ namespace GAB.Web.Personalregister.Controllers
             return View(ansatt);
         }
 
-        // GET: /Ansatte/Edit/5
+        // GET: /Ansatte/Edit/649b608e-4adc-43b9-832e-1ac581fee88a
         public ActionResult Edit(string id)
         {
             if (string.IsNullOrEmpty(id))
@@ -54,7 +54,7 @@ namespace GAB.Web.Personalregister.Controllers
             return View(ansatt);
         }
 
-        // POST: /Ansatte/Edit/5
+        // POST: /Ansatte/Edit/649b608e-4adc-43b9-832e-1ac581fee88a
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "Id,Navn,Rolle,Avdeling")] Ansatt ansatt)
@@ -82,7 +82,7 @@ namespace GAB.Web.Personalregister.Controllers
             return View(ansatt);
         }
 
-        // POST: /Ansatte/Delete/5
+        // POST: /Ansatte/Delete/649b608e-4adc-43b9-832e-1ac581fee88a
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed([Bind(Include = "Id")] string id)
