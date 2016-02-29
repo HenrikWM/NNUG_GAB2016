@@ -164,6 +164,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="HiddenAppSettings.config" />
+    <None Include="HiddenAppSettings.config.example" />
     <None Include="Properties\PublishProfiles\nnug-gab2016-hwm-webapp1.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

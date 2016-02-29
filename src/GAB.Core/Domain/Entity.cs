@@ -1,7 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
-
-namespace GAB.Core.Domain
+﻿namespace GAB.Core.Domain
 {
     //public abstract class Entity
     //{
