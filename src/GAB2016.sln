@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GAB.Web.EmployeeRecords", "GAB.Web.Personalregister\GAB.Web.EmployeeRecords.csproj", "{9416B57E-4BC0-476E-B93E-8C03BCFD5A27}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GAB.Web.EmployeeRecords", "GAB.Web.EmployeeRecords\GAB.Web.EmployeeRecords.csproj", "{9416B57E-4BC0-476E-B93E-8C03BCFD5A27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GAB.Web.ResourcePlanning", "GAB.Web.Ressursplanlegging\GAB.Web.ResourcePlanning.csproj", "{44AF7D0F-4A95-4E49-A5E4-E5FA7C41001E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GAB.Web.ResourcePlanning", "GAB.Web.ResourcePlanning\GAB.Web.ResourcePlanning.csproj", "{44AF7D0F-4A95-4E49-A5E4-E5FA7C41001E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GAB.Web.CapacityCalculations", "GAB.Web.Kapasitetsberegning\GAB.Web.CapacityCalculations.csproj", "{ACF6E42C-42E2-4A04-8C32-8253ECC65FFA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GAB.Web.CapacityCalculations", "GAB.Web.CapacityCalculations\GAB.Web.CapacityCalculations.csproj", "{ACF6E42C-42E2-4A04-8C32-8253ECC65FFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GAB.Web.Reports", "GAB.Web.Rapportering\GAB.Web.Reports.csproj", "{7FCFDB18-07B8-41EA-9561-5DF83B778115}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GAB.Web.Reports", "GAB.Web.Reports\GAB.Web.Reports.csproj", "{7FCFDB18-07B8-41EA-9561-5DF83B778115}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GAB.Core", "GAB.Core\GAB.Core.csproj", "{00E81AC0-8D1F-44D3-8A42-FE11AE46FD05}"
 EndProject
