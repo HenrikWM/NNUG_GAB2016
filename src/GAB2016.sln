@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GAB.Web.Personalregister", "GAB.Web.Personalregister\GAB.Web.Personalregister.csproj", "{9416B57E-4BC0-476E-B93E-8C03BCFD5A27}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GAB.Web.EmployeeRecords", "GAB.Web.Personalregister\GAB.Web.EmployeeRecords.csproj", "{9416B57E-4BC0-476E-B93E-8C03BCFD5A27}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GAB.Web.Ressursplanlegging", "GAB.Web.Ressursplanlegging\GAB.Web.Ressursplanlegging.csproj", "{44AF7D0F-4A95-4E49-A5E4-E5FA7C41001E}"
 EndProject

@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="GAB.Web.Personalregister.MvcApplication" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="GAB.Web.EmployeeRecords.MvcApplication" Language="C#" %>

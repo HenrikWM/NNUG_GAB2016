@@ -2,18 +2,18 @@
 
 namespace GAB.Core.Domain
 {
-    public class Ansatt
+    public class Employee
     {
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
 
         [JsonProperty(PropertyName = "navn")]
-        public string Navn { get; set; }
+        public string Name { get; set; }
 
         [JsonProperty(PropertyName = "avdeling")]
-        public string Avdeling { get; set; }
+        public string Department { get; set; }
 
         [JsonProperty(PropertyName = "rolle")]
-        public Rolle? Rolle { get; set; }
+        public Role? Role { get; set; }
     }
 }

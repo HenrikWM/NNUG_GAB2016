@@ -1,13 +1,13 @@
 using System.Web.Http;
-using WebActivatorEx;
-using GAB.Web.Personalregister;
+using System.Web.Http.Description;
+using GAB.Web.EmployeeRecords;
 using Swashbuckle.Application;
 using Swashbuckle.Swagger;
-using System.Web.Http.Description;
+using WebActivatorEx;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 
-namespace GAB.Web.Personalregister
+namespace GAB.Web.EmployeeRecords
 {
     public class SwaggerConfig
     {
@@ -34,7 +34,7 @@ namespace GAB.Web.Personalregister
                         // hold additional metadata for an API. Version and title are required but you can also provide
                         // additional fields by chaining methods off SingleApiVersion.
                         //
-                        c.SingleApiVersion("v1", "GAB.Web.Personalregister");
+                        c.SingleApiVersion("v1", "GAB.Web.EmployeeRecords");
 
                         // If your API has multiple versions, use "MultipleApiVersions" instead of "SingleApiVersion".
                         // In this case, you must provide a lambda that tells Swashbuckle which actions should be

@@ -49,9 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain\Ansatt.cs" />
-    <Compile Include="Domain\Entity.cs" />
-    <Compile Include="Domain\Rolle.cs" />
+    <Compile Include="Domain\Employee.cs" />
+    <Compile Include="Domain\Role.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\DocumentDB\DocumentDBRepository.cs" />
   </ItemGroup>

@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace GAB.Web.Personalregister
+namespace GAB.Web.EmployeeRecords
 {
     public class FilterConfig
     {

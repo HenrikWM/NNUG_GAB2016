@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace GAB.Web.Personalregister
+namespace GAB.Web.EmployeeRecords
 {
     public class RouteConfig
     {
@@ -12,7 +12,7 @@ namespace GAB.Web.Personalregister
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Ansatte", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Employees", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

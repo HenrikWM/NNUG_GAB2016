@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 
-namespace GAB.Web.Personalregister
+namespace GAB.Web.EmployeeRecords
 {
     public static class WebApiConfig
     {
