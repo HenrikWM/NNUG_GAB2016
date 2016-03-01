@@ -3,7 +3,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace GAB.Web.Kapasitetsberegning.Controllers.Api
+namespace GAB.Web.CapacityCalculations.Controllers.Api
 {
     public class HelloWorldController : ApiController
     {

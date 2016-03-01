@@ -1,6 +1,6 @@
 ﻿using System.Web.Optimization;
 
-namespace GAB.Web.Ressursplanlegging
+namespace GAB.Web.ResourcePlanning
 {
     public class BundleConfig
     {

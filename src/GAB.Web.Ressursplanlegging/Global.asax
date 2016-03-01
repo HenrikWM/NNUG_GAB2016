@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="GAB.Web.Ressursplanlegging.MvcApplication" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="GAB.Web.ResourcePlanning.MvcApplication" Language="C#" %>

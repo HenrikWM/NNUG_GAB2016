@@ -1,7 +1,7 @@
-﻿namespace GAB.Web.Rapportering
-{
-    using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
+namespace GAB.Web.Reports
+{
     public class BundleConfig
     {
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862

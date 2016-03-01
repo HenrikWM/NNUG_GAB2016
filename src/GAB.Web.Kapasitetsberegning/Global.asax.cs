@@ -3,7 +3,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
-namespace GAB.Web.Kapasitetsberegning
+namespace GAB.Web.CapacityCalculations
 {
     public class MvcApplication : System.Web.HttpApplication
     {

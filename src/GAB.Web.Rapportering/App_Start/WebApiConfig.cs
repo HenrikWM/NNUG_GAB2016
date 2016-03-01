@@ -1,7 +1,7 @@
-﻿namespace GAB.Web.Rapportering
-{
-    using System.Web.Http;
+﻿using System.Web.Http;
 
+namespace GAB.Web.Reports
+{
     public static class WebApiConfig
     {
         public static void Register(HttpConfiguration config)

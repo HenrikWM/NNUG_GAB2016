@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 
-namespace GAB.Web.Ressursplanlegging
+namespace GAB.Web.ResourcePlanning
 {
     public static class WebApiConfig
     {
@@ -13,7 +13,9 @@ namespace GAB.Web.Ressursplanlegging
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}");
+                routeTemplate: "api/{controller}/{action}/{id}",
+                defaults: new {id = RouteParameter.Optional}
+            );
         }
     }
 }

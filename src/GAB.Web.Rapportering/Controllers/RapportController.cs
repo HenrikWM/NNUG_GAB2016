@@ -1,13 +1,11 @@
-﻿namespace GAB.Web.Rapportering.Controllers
+﻿using System.Web.Mvc;
+
+namespace GAB.Web.Reports.Controllers
 {
-    using System.Web.Mvc;
-
-    public class RapporterController : Controller
+    public class ReportsController : Controller
     {
-        public ActionResult Vis()
+        public ActionResult Index()
         {
-            ViewBag.Title = "Vis rapport";
-
             return View();
         }
     }

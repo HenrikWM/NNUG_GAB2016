@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Rapportering</title>
+    <title>@ViewBag.Title - Reports</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -16,11 +16,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Rapportering", "Vis", "Rapporter", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Reports", "Index", "Reports", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Vis rapport", "Vis", "Rapporter")</li>
+                    <li>@Html.ActionLink("Reports", "Index", "Reports")</li>
                 </ul>
             </div>
         </div>
@@ -29,7 +29,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Rapportering</p>
+            <p>&copy; @DateTime.Now.Year - Reports</p>
         </footer>
     </div>
 

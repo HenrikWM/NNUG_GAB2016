@@ -1,6 +1,6 @@
 ﻿using System.Web.Optimization;
 
-namespace GAB.Web.Kapasitetsberegning
+namespace GAB.Web.CapacityCalculations
 {
     public class BundleConfig
     {
