@@ -165,7 +165,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="HiddenAppSettings.config" />
     <None Include="HiddenAppSettings.config.example" />
-    <None Include="Properties\PublishProfiles\nnug-gab2016-hwm-nnug-gab2016-hwm-employeerecords.pubxml" />
+    <None Include="Properties\PublishProfiles\nnug-gab2016-hwm-employeerecords.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
