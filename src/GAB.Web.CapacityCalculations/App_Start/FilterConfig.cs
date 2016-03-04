@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace GAB.Web.CapacityCalculations
+namespace GAB.Web.Calculations
 {
     public class FilterConfig
     {

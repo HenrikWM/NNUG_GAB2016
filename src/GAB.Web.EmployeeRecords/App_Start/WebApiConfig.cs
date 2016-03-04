@@ -1,4 +1,7 @@
-﻿using System.Web.Http;
+﻿using System.Net.Http.Formatting;
+using System.Web.Http;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace GAB.Web.EmployeeRecords
 {
@@ -12,10 +15,26 @@ namespace GAB.Web.EmployeeRecords
             config.MapHttpAttributeRoutes();
             
             config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{action}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                name: "Employees",
+                routeTemplate: "api/employees/{id}",
+                defaults: new
+                {
+                    controller = "Employees",
+                    id = RouteParameter.Optional
+                }
             );
+
+            ConfigureJsonCamelCasing();
+        }
+
+        private static void ConfigureJsonCamelCasing()
+        {
+            MediaTypeFormatterCollection formatters = GlobalConfiguration.Configuration.Formatters;
+            JsonMediaTypeFormatter jsonFormatter = formatters.JsonFormatter;
+
+            JsonSerializerSettings settings = jsonFormatter.SerializerSettings;
+            settings.Formatting = Formatting.Indented;
+            settings.ContractResolver = new CamelCasePropertyNamesContractResolver();
         }
     }
 }

@@ -7,13 +7,13 @@ namespace GAB.Core.Domain
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
 
-        [JsonProperty(PropertyName = "navn")]
+        [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
-        [JsonProperty(PropertyName = "avdeling")]
+        [JsonProperty(PropertyName = "department")]
         public string Department { get; set; }
 
-        [JsonProperty(PropertyName = "rolle")]
+        [JsonProperty(PropertyName = "role")]
         public Role? Role { get; set; }
     }
 }

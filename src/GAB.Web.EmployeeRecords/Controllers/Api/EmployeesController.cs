@@ -8,9 +8,9 @@ using GAB.Core.Repositories.DocumentDB;
 
 namespace GAB.Web.EmployeeRecords.Controllers.Api
 {
-    public class EmployeeDetailsController : ApiController
+    public class EmployeesController : ApiController
     {
-        // GET api/employeedetails/get
+        // GET api/employees/get
         [HttpGet]
         public HttpResponseMessage Get()
         {
@@ -22,7 +22,7 @@ namespace GAB.Web.EmployeeRecords.Controllers.Api
             return Request.CreateResponse(HttpStatusCode.OK, ansatte);
         }
 
-        // GET api/employeedetails/get/649b608e-4adc-43b9-832e-1ac581fee88a
+        // GET api/employees/get/649b608e-4adc-43b9-832e-1ac581fee88a
         [HttpGet]
         public HttpResponseMessage Get(string id)
         {

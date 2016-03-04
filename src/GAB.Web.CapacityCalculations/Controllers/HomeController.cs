@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace GAB.Web.CapacityCalculations.Controllers
+namespace GAB.Web.Calculations.Controllers
 {
     public class HomeController : Controller
     {
