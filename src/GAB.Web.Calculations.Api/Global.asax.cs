@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 
-namespace GAB.Web.EmployeeRecords.Api
+namespace GAB.Web.Calculations.Api
 {
     public class WebApiApplication : System.Web.HttpApplication
     {

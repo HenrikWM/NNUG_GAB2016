@@ -9,7 +9,7 @@ using GAB.Core.Repositories.DocumentDB;
 
 namespace GAB.Web.EmployeeRecords.Api.Controllers
 {
-    public class EmployeesApiController : ApiController
+    public class EmployeesController : ApiController
     {
         /// <summary>
         /// Gets all employees

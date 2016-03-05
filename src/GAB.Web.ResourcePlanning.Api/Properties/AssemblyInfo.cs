@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("GAB.Web.EmployeeRecords.Api")]
+[assembly: AssemblyTitle("GAB.Web.ResourcePlanning.Api")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("GAB.Web.EmployeeRecords.Api")]
+[assembly: AssemblyProduct("GAB.Web.ResourcePlanning.Api")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("919828d0-e425-4055-8e5d-8c063416289a")]
+[assembly: Guid("15a0ee59-7f9e-4678-be71-c162dce089fb")]
 
 // Version information for an assembly consists of the following four values:
 //

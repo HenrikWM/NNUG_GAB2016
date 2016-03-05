@@ -3,7 +3,7 @@ using System.Web.Http;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
-namespace GAB.Web.Reports
+namespace GAB.Web.ResourcePlanning.Api
 {
     public static class WebApiConfig
     {
@@ -15,11 +15,11 @@ namespace GAB.Web.Reports
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
-                name: "Reports",
-                routeTemplate: "api/reports/{id}",
+                name: "ResourcePlanning",
+                routeTemplate: "api/resourceplanning/{id}",
                 defaults: new
                 {
-                    controller = "ReportsApi",
+                    controller = "ResourcePlanning",
                     id = RouteParameter.Optional
                 }
             );
