@@ -3,13 +3,12 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Description;
 using GAB.Core.Domain;
 using GAB.Core.Repositories.DocumentDB;
 
-namespace GAB.Web.EmployeeRecords.Controllers.Api
+namespace GAB.Web.EmployeeRecords.Api.Controllers
 {
-    using System.Web.Http.Description;
-
     public class EmployeesApiController : ApiController
     {
         /// <summary>
