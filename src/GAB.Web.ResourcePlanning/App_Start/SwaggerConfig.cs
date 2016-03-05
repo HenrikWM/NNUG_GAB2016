@@ -98,7 +98,7 @@ namespace GAB.Web.ResourcePlanning
                         // those comments into the generated docs and UI. You can enable this by providing the path to one or
                         // more Xml comment files.
                         //
-                        //c.IncludeXmlComments(GetXmlCommentsPath());
+                        c.IncludeXmlComments(GetXmlCommentsPath());
 
                         // Swashbuckle makes a best attempt at generating Swagger compliant JSON schemas for the various types
                         // exposed in your API. However, there may be occasions when more control of the output is needed.
@@ -226,6 +226,11 @@ namespace GAB.Web.ResourcePlanning
                         //
                         //c.EnableOAuth2Support("test-client-id", "test-realm", "Swagger UI");
                     });
+        }
+
+        private static string GetXmlCommentsPath()
+        {
+            return string.Format(@"{0}\bin\GAB.Web.ResourcePlanning.XML", System.AppDomain.CurrentDomain.BaseDirectory);
         }
 
         private class AddDefaultResponse : IOperationFilter

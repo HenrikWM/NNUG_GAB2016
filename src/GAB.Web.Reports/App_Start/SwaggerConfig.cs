@@ -1,14 +1,16 @@
 using System.Web.Http;
-using System.Web.Http.Description;
-using GAB.Web.Calculations;
-using Swashbuckle.Application;
-using Swashbuckle.Swagger;
 using WebActivatorEx;
+using GAB.Web.Reports;
+using Swashbuckle.Application;
 
 [assembly: PreApplicationStartMethod(typeof(SwaggerConfig), "Register")]
 
-namespace GAB.Web.Calculations
+namespace GAB.Web.Reports
 {
+    using System.Web.Http.Description;
+
+    using Swashbuckle.Swagger;
+
     public class SwaggerConfig
     {
         public static void Register()
@@ -34,7 +36,7 @@ namespace GAB.Web.Calculations
                         // hold additional metadata for an API. Version and title are required but you can also provide
                         // additional fields by chaining methods off SingleApiVersion.
                         //
-                        c.SingleApiVersion("v1", "GAB.Web.Calculations");
+                        c.SingleApiVersion("v1", "GAB.Web.Reports");
 
                         // If your API has multiple versions, use "MultipleApiVersions" instead of "SingleApiVersion".
                         // In this case, you must provide a lambda that tells Swashbuckle which actions should be
@@ -230,7 +232,7 @@ namespace GAB.Web.Calculations
 
         private static string GetXmlCommentsPath()
         {
-            return string.Format(@"{0}\bin\GAB.Web.Calculations.XML", System.AppDomain.CurrentDomain.BaseDirectory);
+            return string.Format(@"{0}\bin\GAB.Web.Reports.XML", System.AppDomain.CurrentDomain.BaseDirectory);
         }
 
         private class AddDefaultResponse : IOperationFilter

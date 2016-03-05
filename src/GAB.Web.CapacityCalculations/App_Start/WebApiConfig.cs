@@ -19,7 +19,7 @@ namespace GAB.Web.Calculations
                 routeTemplate: "api/calculations/capacity",
                 defaults: new
                 {
-                    controller = "CapacityCalculations"
+                    controller = "CapacityCalculationsApi"
                 }
             );
 

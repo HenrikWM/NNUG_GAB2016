@@ -2,7 +2,7 @@
 
 namespace GAB.Web.Calculations.Controllers.Api
 {
-    public class CapacityCalculationsController : ApiController
+    public class CapacityCalculationsApiController : ApiController
     {
         
     }

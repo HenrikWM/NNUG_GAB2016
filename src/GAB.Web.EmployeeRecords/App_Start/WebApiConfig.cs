@@ -19,7 +19,7 @@ namespace GAB.Web.EmployeeRecords
                 routeTemplate: "api/employees/{id}",
                 defaults: new
                 {
-                    controller = "Employees",
+                    controller = "EmployeesApi",
                     id = RouteParameter.Optional
                 }
             );

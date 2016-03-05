@@ -8,7 +8,7 @@ using GAB.Core.Repositories.DocumentDB;
 
 namespace GAB.Web.Reports.Controllers.Api
 {
-    public class ReportsController : ApiController
+    public class ReportsApiController : ApiController
     {
         //// GET api/reports/get
         //[HttpGet]

@@ -19,7 +19,7 @@ namespace GAB.Web.Reports
                 routeTemplate: "api/reports/{id}",
                 defaults: new
                 {
-                    controller = "Reports",
+                    controller = "ReportsApi",
                     id = RouteParameter.Optional
                 }
             );
