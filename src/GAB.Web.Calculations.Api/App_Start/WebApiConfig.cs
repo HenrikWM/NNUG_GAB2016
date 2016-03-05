@@ -15,7 +15,7 @@ namespace GAB.Web.Calculations.Api
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
-                name: "CapacityCalculations",
+                name: "CapacityCalculationsApi",
                 routeTemplate: "api/calculations/capacity",
                 defaults: new
                 {
