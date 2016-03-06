@@ -37,7 +37,7 @@ namespace GAB.Web.ResourcePlanning.Api.Controllers
                 return Request.CreateResponse(HttpStatusCode.NotFound);
 
             // Create resource plan for employee for today
-            ResourcePlan resourcePlanForEmployee = ResourcePlan.CreateForToday(employee);
+            ResourcePlan resourcePlanForEmployee = ResourcePlan.CreateForToday(employee.Id);
             
             Document createdDocument = await DocumentDBRepository<ResourcePlan>.CreateItemAsync(resourcePlanForEmployee);
             resourcePlanForEmployee.Id = createdDocument.Id;

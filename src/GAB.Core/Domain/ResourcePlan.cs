@@ -17,22 +17,14 @@ namespace GAB.Core.Domain
 
         [JsonProperty(PropertyName = "employeeId")]
         public string EmployeeId { get; set; }
-
-        [JsonProperty(PropertyName = "department")]
-        public string Department { get; set; }
-
-        [JsonProperty(PropertyName = "role")]
-        public Role Role { get; set; }
-
-        public static ResourcePlan CreateForToday(Employee employee)
+        
+        public static ResourcePlan CreateForToday(string employeeId)
         {
             return new ResourcePlan
             {
                 From = WorkDayDates.GetStartTime(DateTime.UtcNow),
                 To = WorkDayDates.GetEndTime(DateTime.UtcNow),
-                EmployeeId = employee.Id,
-                Department = employee.Department,
-                Role = employee.Role
+                EmployeeId = employeeId
             };
         }
     }
