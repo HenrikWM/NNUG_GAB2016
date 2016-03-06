@@ -2,10 +2,12 @@
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using GAB.Core.Domain;
 using GAB.Core.Repositories.DocumentDB;
+using Microsoft.Azure.Documents;
 
 namespace GAB.Web.EmployeeRecords.Api.Controllers
 {
@@ -48,6 +50,27 @@ namespace GAB.Web.EmployeeRecords.Api.Controllers
                 return Request.CreateResponse(HttpStatusCode.NotFound);
 
             return Request.CreateResponse(HttpStatusCode.OK, employee);
-        }    
+        }
+
+        /// <summary>
+        /// Creates an employee
+        /// </summary>
+        /// <param name="employee">An employee</param>
+        /// <remarks>Creates an employee</remarks>
+        /// <response code="400">Bad request</response>
+        [HttpPost]
+        [ResponseType(typeof(Employee))]
+        public async Task<HttpResponseMessage> Post([FromBody] Employee employee)
+        {
+            if (ModelState.IsValid)
+            {
+                Document createdDocument = await DocumentDBRepository<Employee>.CreateItemAsync(employee);
+                employee.Id = createdDocument.Id;
+
+                return Request.CreateResponse(HttpStatusCode.Created, employee);
+            }
+
+            return Request.CreateResponse(HttpStatusCode.BadRequest);
+        }
     }
 }

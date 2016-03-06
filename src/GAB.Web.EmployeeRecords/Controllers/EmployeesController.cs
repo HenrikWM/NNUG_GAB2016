@@ -1,18 +1,23 @@
 ﻿using System.Collections.Generic;
+using System.Configuration;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using GAB.Core.Domain;
 using GAB.Core.Repositories.DocumentDB;
+using GAB.Http.ApiClients;
 
 namespace GAB.Web.EmployeeRecords.Controllers
 {
     public class EmployeesController : Controller
     {
+        private readonly EmployeeRecordsApiClient _employeeRecordsApiClient =
+                  new EmployeeRecordsApiClient(ConfigurationManager.AppSettings["EmployeeRecordsApiBaseUrl"]);
+
         // GET: /Employees/
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            IEnumerable<Employee> employees = DocumentDBRepository<Employee>.GetAllItems();
+            IEnumerable<Employee> employees = await _employeeRecordsApiClient.Get();
 
             return View(employees);
         }
@@ -30,7 +35,7 @@ namespace GAB.Web.EmployeeRecords.Controllers
         {
             if (ModelState.IsValid)
             {
-                await DocumentDBRepository<Employee>.CreateItemAsync(employee);
+                await _employeeRecordsApiClient.Create(employee);
 
                 return RedirectToAction("Index");
             }
