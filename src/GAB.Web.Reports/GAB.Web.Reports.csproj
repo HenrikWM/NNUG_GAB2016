@@ -125,7 +125,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\RapportController.cs" />
+    <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -140,7 +140,6 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="HiddenAppSettings.config.example" />
     <None Include="Properties\PublishProfiles\nnug-gab2016-hwm-reports.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -166,6 +165,10 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Reports\Index.cshtml" />
+    <Content Include="Views\Reports\Persons.cshtml" />
+    <Content Include="Views\Reports\WorkHours.cshtml" />
+    <Content Include="Views\Reports\Capacity.cshtml" />
+    <Content Include="Views\Reports\Costs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -183,6 +186,10 @@
     <ProjectReference Include="..\GAB.Core\GAB.Core.csproj">
       <Project>{00E81AC0-8D1F-44D3-8A42-FE11AE46FD05}</Project>
       <Name>GAB.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GAB.Http\GAB.Http.csproj">
+      <Project>{4F59923B-102A-499D-A406-0C530CF293FF}</Project>
+      <Name>GAB.Http</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
