@@ -14,6 +14,6 @@ namespace GAB.Core.Domain
         public string Department { get; set; }
 
         [JsonProperty(PropertyName = "role")]
-        public Role? Role { get; set; }
+        public Role Role { get; set; }
     }
 }
