@@ -34,7 +34,7 @@ namespace GAB.Web.Reports.Api.Controllers
         /// Creates a report
         /// </summary>
         /// <param name="report">A report</param>
-        /// <remarks>Creates a report</remarks>
+        /// <remarks>Creates a report in the database</remarks>
         /// <response code="400">Bad request</response>
         [HttpPost]
         [ResponseType(typeof(Report))]

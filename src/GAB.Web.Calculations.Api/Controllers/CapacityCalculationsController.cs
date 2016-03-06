@@ -25,17 +25,19 @@ namespace GAB.Web.Calculations.Api.Controllers
         [ResponseType(typeof(Report))]
         public async Task<HttpResponseMessage> CalculateCapacityForResourcePlan([FromBody] ResourcePlan resourcePlan)
         {
-            if (resourcePlan == null)
-                return Request.CreateResponse(HttpStatusCode.BadRequest);
+            if (ModelState.IsValid)
+            {
+                Employee employee = await _employeeRecordsApiClient.GetById(resourcePlan.EmployeeId);
 
-            Employee employee = await _employeeRecordsApiClient.GetById(resourcePlan.EmployeeId);
+                if (employee == null)
+                    return Request.CreateResponse(HttpStatusCode.NotFound);
 
-            if (employee == null)
-                return Request.CreateResponse(HttpStatusCode.NotFound);
-            
-            // TODO: calculate based on plan + employee, create report
+                // TODO: calculate based on plan + employee, create report
 
-            return Request.CreateResponse(HttpStatusCode.OK, new Report());
+                return Request.CreateResponse(HttpStatusCode.OK, new Report());
+            }
+
+            return Request.CreateResponse(HttpStatusCode.BadRequest);
         }
     }
 }
