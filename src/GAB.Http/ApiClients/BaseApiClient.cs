@@ -70,5 +70,24 @@ namespace GAB.Http.ApiClients
             }
             return null;
         }
+
+        protected async Task<bool> Delete(string url, string id)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(_baseUrl);
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                
+                HttpRequestMessage httpRequestMessage = new HttpRequestMessage(HttpMethod.Delete, url);
+
+                HttpResponseMessage response = await client.SendAsync(httpRequestMessage);
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

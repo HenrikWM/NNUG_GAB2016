@@ -60,7 +60,7 @@ namespace GAB.Web.EmployeeRecords.Api.Controllers
         /// <response code="400">Bad request</response>
         [HttpPost]
         [ResponseType(typeof(Employee))]
-        public async Task<HttpResponseMessage> Post([FromBody] Employee employee)
+        public async Task<HttpResponseMessage> Create([FromBody] Employee employee)
         {
             if (ModelState.IsValid)
             {
@@ -71,6 +71,29 @@ namespace GAB.Web.EmployeeRecords.Api.Controllers
             }
 
             return Request.CreateResponse(HttpStatusCode.BadRequest);
+        }
+
+        /// <summary>
+        /// Deletes an employee
+        /// </summary>
+        /// <param name="id">Employee id</param>
+        /// <remarks>Deletes an employee</remarks>
+        /// <response code="400">Bad request</response>
+        [HttpDelete]
+        [ResponseType(typeof(Employee))]
+        public async Task<HttpResponseMessage> Delete(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+
+            Employee employee = DocumentDBRepository<Employee>.GetItem(d => d.Id == id);
+
+            if (employee == null)
+                return Request.CreateResponse(HttpStatusCode.NotFound);
+
+            await DocumentDBRepository<Employee>.DeleteItemAsync(id);
+
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
     }
 }

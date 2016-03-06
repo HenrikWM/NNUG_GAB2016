@@ -44,13 +44,13 @@ namespace GAB.Web.EmployeeRecords.Controllers
         }
 
         // GET: /Employees/Edit/649b608e-4adc-43b9-832e-1ac581fee88a
-        public ActionResult Edit(string id)
+        public async Task<ActionResult> Edit(string id)
         {
             if (string.IsNullOrEmpty(id))
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Employee employee = DocumentDBRepository<Employee>.GetItem(d => d.Id == id);
+            Employee employee = await _employeeRecordsApiClient.GetById(id);
             if (employee == null)
             {
                 return HttpNotFound();
@@ -72,13 +72,13 @@ namespace GAB.Web.EmployeeRecords.Controllers
         }
 
         // GET: /Employees/Delete/5
-        public ActionResult Delete(string id)
+        public async Task<ActionResult> Delete(string id)
         {
             if (string.IsNullOrEmpty(id))
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Employee employee = DocumentDBRepository<Employee>.GetItem(d => d.Id == id);
+            Employee employee = await _employeeRecordsApiClient.GetById(id);
             if (employee == null)
             {
                 return HttpNotFound();
@@ -91,7 +91,7 @@ namespace GAB.Web.EmployeeRecords.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed([Bind(Include = "Id")] string id)
         {
-            await DocumentDBRepository<Employee>.DeleteItemAsync(id);
+            await _employeeRecordsApiClient.Delete(id);
             return RedirectToAction("Index");
         }
     }

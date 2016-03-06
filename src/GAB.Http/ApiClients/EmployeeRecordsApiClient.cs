@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Security.Policy;
 using System.Threading.Tasks;
 using GAB.Core.Domain;
 
@@ -18,11 +19,11 @@ namespace GAB.Http.ApiClients
             return await Get(url);
         }
 
-        public async Task<Employee> GetById(string employeeId)
+        public async Task<Employee> GetById(string id)
         {
-            string url = string.Format("/api/employees/{0}", employeeId);
+            string url = string.Format("/api/employees/{0}", id);
 
-            return await GetById(url, employeeId);
+            return await GetById(url, id);
         }
 
         public async Task<Employee> Create(Employee employee)
@@ -30,6 +31,13 @@ namespace GAB.Http.ApiClients
             string url = "/api/employees";
 
             return await Create(url, employee);
+        }
+
+        public async Task<bool> Delete(string id)
+        {
+            string url = string.Format("/api/employees/{0}", id);
+
+            return await Delete(url, id);
         }
     }
 }
