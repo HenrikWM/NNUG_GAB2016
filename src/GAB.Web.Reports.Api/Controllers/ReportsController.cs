@@ -38,7 +38,7 @@ namespace GAB.Web.Reports.Api.Controllers
         /// <response code="400">Bad request</response>
         [HttpPost]
         [ResponseType(typeof(Report))]
-        public async Task<HttpResponseMessage> Post([FromBody] Report report)
+        public async Task<HttpResponseMessage> Create([FromBody] Report report)
         {
             if (ModelState.IsValid)
             {
