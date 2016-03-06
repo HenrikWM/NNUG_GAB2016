@@ -26,7 +26,7 @@ namespace GAB.Web.EmployeeRecords.Controllers
         // POST: /Employees/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Name,Role,Department")] Employee employee)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Name,Role,Department,HourlyRate")] Employee employee)
         {
             if (ModelState.IsValid)
             {
@@ -56,7 +56,7 @@ namespace GAB.Web.EmployeeRecords.Controllers
         // POST: /Employees/Edit/649b608e-4adc-43b9-832e-1ac581fee88a
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Role,Department")] Employee employee)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Role,Department,HourlyRate")] Employee employee)
         {
             if (ModelState.IsValid)
             {

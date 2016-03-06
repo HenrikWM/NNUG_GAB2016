@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System.ComponentModel;
+using Newtonsoft.Json;
 
 namespace GAB.Core.Domain
 {
@@ -15,5 +16,9 @@ namespace GAB.Core.Domain
 
         [JsonProperty(PropertyName = "role")]
         public Role Role { get; set; }
+        
+        [JsonProperty(PropertyName = "hourlyRate")]
+        [DisplayName("Hourly rate")]
+        public double HourlyRate { get; set; }
     }
 }

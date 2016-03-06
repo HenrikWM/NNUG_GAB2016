@@ -10,7 +10,7 @@
 <h2>Employees</h2>
 
 <p>
-    @Html.ActionLink("Create new", "CreateForToday")
+    @Html.ActionLink("Create new", "Create")
 </p>
 <table class="table">
     <tr>
@@ -22,6 +22,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Department)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HourlyRate)
         </th>
         <th></th>
     </tr>
@@ -36,6 +39,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Department)
+        </td>
+        <td>
+            $@Html.DisplayFor(modelItem => item.HourlyRate)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

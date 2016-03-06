@@ -37,7 +37,15 @@
         <dd>
             @Html.DisplayFor(model => model.Department)
         </dd>
-               
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HourlyRate)
+        </dt>
+
+        <dd>
+            $@Html.DisplayFor(model => model.HourlyRate)
+        </dd>
+
     </dl>
 
     @using (Html.BeginForm()) {

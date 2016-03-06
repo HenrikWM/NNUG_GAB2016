@@ -22,3 +22,8 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.input-group input.currency {
+    text-align: right;
+    width: 5em;
+}
