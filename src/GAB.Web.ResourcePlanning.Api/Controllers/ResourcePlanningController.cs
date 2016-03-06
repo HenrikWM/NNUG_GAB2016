@@ -1,5 +1,4 @@
-﻿using System;
-using System.Configuration;
+﻿using System.Configuration;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -7,7 +6,7 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using GAB.Core.Domain;
 using GAB.Core.Repositories.DocumentDB;
-using GAB.Web.ResourcePlanning.Api.Clients;
+using GAB.Http.ApiClients;
 using Microsoft.Azure.Documents;
 
 namespace GAB.Web.ResourcePlanning.Api.Controllers

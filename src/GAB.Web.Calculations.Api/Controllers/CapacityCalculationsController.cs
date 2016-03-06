@@ -1,35 +1,41 @@
-﻿using System.Collections.Generic;
+﻿using System.Configuration;
+using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Description;
+using GAB.Core.Domain;
+using GAB.Http.ApiClients;
 
 namespace GAB.Web.Calculations.Api.Controllers
 {
     public class CapacityCalculationsController : ApiController
     {
-        // GET api/values
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+        private readonly EmployeeRecordsApiClient _employeeRecordsApiClient =
+                    new EmployeeRecordsApiClient(ConfigurationManager.AppSettings["EmployeeRecordsApiBaseUrl"]);
 
-        // GET api/values/5
-        public string Get(int id)
+        /// <summary>
+        /// Calculates capacity and returns a report
+        /// </summary>
+        /// <param name="resourcePlan">Resource plan</param>
+        /// <remarks>Calculates capacity based on a provided resource plan and returns a report</remarks>
+        /// <response code="400">Bad request</response>
+        /// <response code="404">Not found</response> 
+        [HttpPost]
+        [ResponseType(typeof(Report))]
+        public async Task<HttpResponseMessage> CalculateCapacityForResourcePlan([FromBody] ResourcePlan resourcePlan)
         {
-            return "value";
-        }
+            if (resourcePlan == null)
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
 
-        // POST api/values
-        public void Post([FromBody]string value)
-        {
-        }
+            Employee employee = await _employeeRecordsApiClient.GetById(resourcePlan.EmployeeId);
 
-        // PUT api/values/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
+            if (employee == null)
+                return Request.CreateResponse(HttpStatusCode.NotFound);
+            
+            // TODO: calculate based on plan + employee, create report
 
-        // DELETE api/values/5
-        public void Delete(int id)
-        {
+            return Request.CreateResponse(HttpStatusCode.OK, new Report());
         }
     }
 }

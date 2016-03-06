@@ -94,7 +94,6 @@
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="packages.config" />
-    <Content Include="HiddenAppSettings.config.example" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
@@ -115,7 +114,16 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\GAB.Core\GAB.Core.csproj">
+      <Project>{00E81AC0-8D1F-44D3-8A42-FE11AE46FD05}</Project>
+      <Name>GAB.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GAB.Http\GAB.Http.csproj">
+      <Project>{4F59923B-102A-499D-A406-0C530CF293FF}</Project>
+      <Name>GAB.Http</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

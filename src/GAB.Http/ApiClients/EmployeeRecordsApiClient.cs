@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using GAB.Core.Domain;
 
-namespace GAB.Web.ResourcePlanning.Api.Clients
+namespace GAB.Http.ApiClients
 {
     public class EmployeeRecordsApiClient
     {

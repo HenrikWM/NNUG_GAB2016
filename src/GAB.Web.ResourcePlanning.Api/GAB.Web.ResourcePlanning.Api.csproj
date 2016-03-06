@@ -45,10 +45,6 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Rest.ClientRuntime, Version=0.9.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Rest.ClientRuntime.0.9.6\lib\net45\Microsoft.Rest.ClientRuntime.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
@@ -108,7 +104,6 @@
   <ItemGroup>
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Clients\EmployeeRecordsApiClient.cs" />
     <Compile Include="Controllers\ResourcePlanningController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -128,6 +123,10 @@
     <ProjectReference Include="..\GAB.Core\GAB.Core.csproj">
       <Project>{00E81AC0-8D1F-44D3-8A42-FE11AE46FD05}</Project>
       <Name>GAB.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GAB.Http\GAB.Http.csproj">
+      <Project>{4F59923B-102A-499D-A406-0C530CF293FF}</Project>
+      <Name>GAB.Http</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

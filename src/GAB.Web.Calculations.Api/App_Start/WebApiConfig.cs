@@ -16,10 +16,11 @@ namespace GAB.Web.Calculations.Api
 
             config.Routes.MapHttpRoute(
                 name: "CapacityCalculationsApi",
-                routeTemplate: "api/calculations/capacity",
+                routeTemplate: "api/calculations/capacity/resourceplan",
                 defaults: new
                 {
-                    controller = "CapacityCalculations"
+                    controller = "CapacityCalculations",
+                    action = "CalculateCapacityForResourcePlan"
                 }
             );
 

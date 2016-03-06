@@ -1,7 +1,0 @@
-﻿<?xml version="1.0"?>
-<appSettings>
-  <add key="endpoint" value="https://##your-url##.documents.azure.com:443/" />
-  <add key="authKey" value="##your-authkey##" />
-  <add key="database" value="##your-docdb-name##" />
-  <add key="collection" value="##your-docdb-collection##" />
-</appSettings>
