@@ -4,7 +4,6 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using GAB.Core.Domain;
-using GAB.Core.Repositories.DocumentDB;
 using GAB.Http.ApiClients;
 
 namespace GAB.Web.EmployeeRecords.Controllers
@@ -65,7 +64,7 @@ namespace GAB.Web.EmployeeRecords.Controllers
         {
             if (ModelState.IsValid)
             {
-                await DocumentDBRepository<Employee>.UpdateItemAsync(employee.Id, employee);
+                await _employeeRecordsApiClient.Update(employee);
                 return RedirectToAction("Index");
             }
             return View(employee);

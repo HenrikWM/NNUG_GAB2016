@@ -39,5 +39,12 @@ namespace GAB.Http.ApiClients
 
             return await Delete(url, id);
         }
+
+        public async Task<bool> Update(Employee employee)
+        {
+            string url = "/api/employees";
+
+            return await Update(url, employee);
+        }
     }
 }

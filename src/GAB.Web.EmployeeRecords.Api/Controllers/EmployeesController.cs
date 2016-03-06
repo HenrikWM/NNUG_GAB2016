@@ -56,7 +56,7 @@ namespace GAB.Web.EmployeeRecords.Api.Controllers
         /// Creates an employee
         /// </summary>
         /// <param name="employee">An employee</param>
-        /// <remarks>Creates an employee</remarks>
+        /// <remarks>Creates an employee in the database</remarks>
         /// <response code="400">Bad request</response>
         [HttpPost]
         [ResponseType(typeof(Employee))]
@@ -74,13 +74,39 @@ namespace GAB.Web.EmployeeRecords.Api.Controllers
         }
 
         /// <summary>
+        /// Updates an employee
+        /// </summary>
+        /// <param name="id">Employee id</param>
+        /// <param name="employee">The updated employee</param>
+        /// <remarks>Updates an employee in the database</remarks>
+        /// <response code="400">Bad request</response>
+        /// <response code="404">Not found</response>
+        [HttpPut]
+        public async Task<HttpResponseMessage> Update([FromBody] Employee employee)
+        {
+            if (ModelState.IsValid)
+            {
+                Employee existingEmployee = DocumentDBRepository<Employee>.GetItem(d => d.Id == employee.Id);
+
+                if (existingEmployee == null)
+                    return Request.CreateResponse(HttpStatusCode.NotFound);
+
+                await DocumentDBRepository<Employee>.UpdateItemAsync(employee.Id, employee);
+                
+                return Request.CreateResponse(HttpStatusCode.OK);
+            }
+
+            return Request.CreateResponse(HttpStatusCode.BadRequest);
+        }
+
+        /// <summary>
         /// Deletes an employee
         /// </summary>
         /// <param name="id">Employee id</param>
-        /// <remarks>Deletes an employee</remarks>
+        /// <remarks>Deletes an employee from the database</remarks>
         /// <response code="400">Bad request</response>
+        /// <response code="404">Not found</response>
         [HttpDelete]
-        [ResponseType(typeof(Employee))]
         public async Task<HttpResponseMessage> Delete(string id)
         {
             if (string.IsNullOrEmpty(id))

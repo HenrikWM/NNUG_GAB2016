@@ -89,5 +89,25 @@ namespace GAB.Http.ApiClients
             }
             return false;
         }
+
+        protected async Task<bool> Update(string url, T entity)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(_baseUrl);
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                string serializedEntity = JsonConvert.SerializeObject(entity);
+                HttpContent content = new StringContent(serializedEntity, Encoding.UTF8, "application/json");
+
+                HttpResponseMessage response = await client.PutAsync(url, content);
+                if (response.IsSuccessStatusCode)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }
