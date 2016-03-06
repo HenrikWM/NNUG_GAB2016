@@ -31,7 +31,7 @@ namespace GAB.Http.ApiClients
                     return await response.Content.ReadAsAsync<IEnumerable<T>>();
                 }
             }
-            return null;
+            return new List<T>();
         }
 
         protected async Task<T> GetById(string url, string id)
