@@ -11,11 +11,11 @@ using Microsoft.Azure.Documents;
 
 namespace GAB.Web.ResourcePlanning.Api.Controllers
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
 
     using GAB.Core.Domain.ResourcePlanning;
+    using GAB.Web.ResourcePlanning.Api.Models;
 
     public class ResourcePlanningController : ApiController
     {
@@ -104,12 +104,5 @@ namespace GAB.Web.ResourcePlanning.Api.Controllers
 
             return Request.CreateResponse(HttpStatusCode.OK, resourcePlan);
         }
-    }
-
-    public class PlanForEmployeeRequest
-    {
-        public DateTime PlanStartsAt;
-
-        public DateTime PlanEndsAt;
     }
 }
