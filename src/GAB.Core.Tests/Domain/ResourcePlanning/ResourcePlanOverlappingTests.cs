@@ -15,6 +15,7 @@
     public class ResourcePlanOverlappingTests
     {
         private const string FakeEmployeeId = "123";
+        private const string AnotherFakeEmployeeId = "321";
 
         [Test]
         [ExpectedException(typeof(InvalidOperationException))]
@@ -48,7 +49,7 @@
         [TestCase(8, 9, FakeEmployeeId, true)]
         [TestCase(9, 10, FakeEmployeeId, true)]
         [TestCase(11, 12, FakeEmployeeId, true)]
-        [TestCase(11, 12, "321", false)]
+        [TestCase(11, 12, AnotherFakeEmployeeId, false)]
         [TestCase(12, 13, FakeEmployeeId, false)]
         public void HasOverlapping_GivenResourcePlanAndHaveExistingResourcePlans_ReturnsExpectedResult(
             int resourcePlanStartHour, 

@@ -30,12 +30,28 @@ namespace GAB.Core.Domain
 
         public static ResourcePlan Create(string employeeId, DateTime startAt, DateTime endsAt)
         {
+            EnsureStartAndEndAreOnSameDay(startAt, endsAt);
+
             return new ResourcePlan
             {
                 From = startAt,
                 To = endsAt,
                 EmployeeId = employeeId
             };
+        }
+
+        private static void EnsureStartAndEndAreOnSameDay(DateTime startAt, DateTime endsAt)
+        {
+            if (startAt.Year != endsAt.Year ||
+                startAt.Month != endsAt.Month ||
+                startAt.Day != endsAt.Day)
+                throw new InvalidOperationException(string.Format("{0} and {1} must be on the same day", startAt, endsAt));
+                
+        }
+
+        private static void EnsureStartAndEndAreOnSameDay()
+        {
+            throw new NotImplementedException();
         }
     }
 }
