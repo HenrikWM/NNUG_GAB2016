@@ -22,8 +22,18 @@ namespace GAB.Core.Domain
         {
             return new ResourcePlan
             {
-                From = WorkDayDates.GetStartTime(DateTime.UtcNow),
-                To = WorkDayDates.GetEndTime(DateTime.UtcNow),
+                From = WorkDayDates.GetFullDayStartTime(DateTime.UtcNow),
+                To = WorkDayDates.GetFullDayEndTime(DateTime.UtcNow),
+                EmployeeId = employeeId
+            };
+        }
+
+        public static ResourcePlan Create(string employeeId, DateTime startAt, DateTime endsAt)
+        {
+            return new ResourcePlan
+            {
+                From = startAt,
+                To = endsAt,
                 EmployeeId = employeeId
             };
         }

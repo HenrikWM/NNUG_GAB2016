@@ -4,17 +4,19 @@ namespace GAB.Core.Domain.ResourcePlanning
 {
     public class WorkDayDates
     {
-        public static DateTime GetStartTime(DateTime startDate)
+        private const int DefaultWorkDayDurationInHours = 8;
+
+        public static DateTime GetFullDayStartTime(DateTime startDate)
         {
             DateTime startTime = new DateTime(startDate.Year, startDate.Month, startDate.Day, 8, 0, 0); // 08:00        
 
             return startTime;
         }
 
-        public static DateTime GetEndTime(DateTime startDate)
+        public static DateTime GetFullDayEndTime(DateTime startDate, int workDayDurationInHours = DefaultWorkDayDurationInHours)
         {
-            DateTime startTime = GetStartTime(startDate);
-            DateTime endTime = startTime.AddHours(8); // Start + 8 hrs
+            DateTime startTime = GetFullDayStartTime(startDate);
+            DateTime endTime = startTime.AddHours(workDayDurationInHours);
 
             return endTime;
         }
