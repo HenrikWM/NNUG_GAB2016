@@ -7,6 +7,6 @@ This is a collection of workshop assignments that were given at NNUG's Global Az
 
 ## Assignments overview
 
-Using products and features in Microsoft Azure you will create and integrate apps to form a workflow for a simple ERP scenario. Features you might use for this are Web Apps, Api Apps, DocumentDB, Azure Queues, Azure ServiceBus, Azure EventHub and more.
+Using products and features in Microsoft Azure you will create and integrate apps to form a workflow for a simple ERP scenario. Products  you might want to consider are Web Apps, Api Apps, DocumentDB, Azure Queues, Azure ServiceBus, Azure EventHub and more! Go to the [Azure portal](https://portal.azure.com/) to find these and many more products availiable on the Azure platform.
 
 [Proceed to the assignments](https://github.com/HenrikWM/NNUG_GAB2016/wiki)
