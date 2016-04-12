@@ -7,6 +7,6 @@ This is a collection of workshop assignments that were given at NNUG's Global Az
 
 ## Assignments overview
 
-Using products and features in Microsoft Azure you will use two web apps to create content, a logic app to consume and do calculations, and lastly a third web app to receive and store the new insights. 
+Using products and features in Microsoft Azure you will create and integrate apps to form a workflow for a simple ERP scenario. Features you might use for this are Web Apps, Api Apps, DocumentDB, Azure Queues, Azure ServiceBus, Azure EventHub and more.
 
 [Proceed to the assignments](https://github.com/HenrikWM/NNUG_GAB2016/wiki)
