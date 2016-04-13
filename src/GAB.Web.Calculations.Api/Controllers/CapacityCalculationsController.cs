@@ -39,7 +39,14 @@ namespace GAB.Web.Calculations.Api.Controllers
                 
             double utilizationForEmployeeInPercent = CapacityCalculator.CalculateUtilizationForEmployee(resourcePlan);
 
-            Report report = new Report { UtilizationForEmployeeInPercent = utilizationForEmployeeInPercent };
+            double utilizationForDepartmentInPercent = CapacityCalculator.CalculateUtilizationForDepartment(resourcePlan);
+        
+            Report report = new Report {
+                EmployeeName = employee.Name,
+                EmployeeDepartment = employee.Department,
+                UtilizationForEmployeeInPercent = utilizationForEmployeeInPercent,
+                UtilizationForDepartmentInPercent = utilizationForDepartmentInPercent
+            };
 
             return Request.CreateResponse(HttpStatusCode.OK, report);
         }

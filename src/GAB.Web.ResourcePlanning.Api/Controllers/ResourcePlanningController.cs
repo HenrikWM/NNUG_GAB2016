@@ -66,6 +66,8 @@ namespace GAB.Web.ResourcePlanning.Api.Controllers
             Document createdDocument = await DocumentDBRepository<ResourcePlan>.CreateItemAsync(resourcePlanForEmployee);
             resourcePlanForEmployee.Id = createdDocument.Id;
 
+            // TODO: Call calculations API with ResourcePlan, store returned report.
+
             return Request.CreateResponse(HttpStatusCode.Created, resourcePlanForEmployee);
         }
 
