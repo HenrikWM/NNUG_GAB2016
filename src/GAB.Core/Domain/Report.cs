@@ -7,6 +7,11 @@ namespace GAB.Core.Domain
         [JsonProperty(PropertyName = "id")]
         public string Id { get; set; }
 
+        [JsonProperty(PropertyName = "utilizationForEmployee")]
+        public string UtilizationForEmployee { get; set; }
+
+        [JsonProperty(PropertyName = "utilizationForDepartment")]
+        public string UtilizationForDepartment { get; set; }
 
     }
 }

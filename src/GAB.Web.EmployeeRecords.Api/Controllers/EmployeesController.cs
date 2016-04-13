@@ -62,15 +62,15 @@ namespace GAB.Web.EmployeeRecords.Api.Controllers
         [ResponseType(typeof(Employee))]
         public async Task<HttpResponseMessage> Create([FromBody] Employee employee)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid == false)
             {
-                Document createdDocument = await DocumentDBRepository<Employee>.CreateItemAsync(employee);
-                employee.Id = createdDocument.Id;
-
-                return Request.CreateResponse(HttpStatusCode.Created, employee);
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
             }
 
-            return Request.CreateResponse(HttpStatusCode.BadRequest);
+            Document createdDocument = await DocumentDBRepository<Employee>.CreateItemAsync(employee);
+            employee.Id = createdDocument.Id;
+
+            return Request.CreateResponse(HttpStatusCode.Created, employee);
         }
 
         /// <summary>
@@ -84,19 +84,19 @@ namespace GAB.Web.EmployeeRecords.Api.Controllers
         [HttpPut]
         public async Task<HttpResponseMessage> Update([FromBody] Employee employee)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid == false)
             {
-                Employee existingEmployee = DocumentDBRepository<Employee>.GetItem(d => d.Id == employee.Id);
-
-                if (existingEmployee == null)
-                    return Request.CreateResponse(HttpStatusCode.NotFound);
-
-                await DocumentDBRepository<Employee>.UpdateItemAsync(employee.Id, employee);
-                
-                return Request.CreateResponse(HttpStatusCode.OK);
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
             }
 
-            return Request.CreateResponse(HttpStatusCode.BadRequest);
+            Employee existingEmployee = DocumentDBRepository<Employee>.GetItem(d => d.Id == employee.Id);
+
+            if (existingEmployee == null)
+                return Request.CreateResponse(HttpStatusCode.NotFound);
+
+            await DocumentDBRepository<Employee>.UpdateItemAsync(employee.Id, employee);
+                
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
         /// <summary>

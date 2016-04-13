@@ -40,15 +40,15 @@ namespace GAB.Web.Reports.Api.Controllers
         [ResponseType(typeof(Report))]
         public async Task<HttpResponseMessage> Create([FromBody] Report report)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid == false)
             {
-                Document createdDocument = await DocumentDBRepository<Report>.CreateItemAsync(report);
-                report.Id = createdDocument.Id;
-
-                return Request.CreateResponse(HttpStatusCode.Created, report);
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
             }
 
-            return Request.CreateResponse(HttpStatusCode.BadRequest);
+            Document createdDocument = await DocumentDBRepository<Report>.CreateItemAsync(report);
+            report.Id = createdDocument.Id;
+
+            return Request.CreateResponse(HttpStatusCode.Created, report);
         }
     }
 }

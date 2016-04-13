@@ -32,14 +32,14 @@ namespace GAB.Web.EmployeeRecords.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create([Bind(Include = "Id,Name,Role,Department,HourlyRate")] Employee employee)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid == false)
             {
-                await _employeeRecordsApiClient.Create(employee);
-
-                return RedirectToAction("Index");
+                return View(employee);
             }
 
-            return View(employee);
+            await _employeeRecordsApiClient.Create(employee);
+
+            return RedirectToAction("Index");
         }
 
         // GET: /Employees/Edit/649b608e-4adc-43b9-832e-1ac581fee88a
@@ -49,11 +49,14 @@ namespace GAB.Web.EmployeeRecords.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Employee employee = await _employeeRecordsApiClient.GetById(id);
+
             if (employee == null)
             {
                 return HttpNotFound();
             }
+
             return View(employee);
         }
 
@@ -62,12 +65,14 @@ namespace GAB.Web.EmployeeRecords.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "Id,Name,Role,Department,HourlyRate")] Employee employee)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid == false)
             {
-                await _employeeRecordsApiClient.Update(employee);
-                return RedirectToAction("Index");
+                return View(employee);
             }
-            return View(employee);
+
+            await _employeeRecordsApiClient.Update(employee);
+
+            return RedirectToAction("Index");
         }
 
         // GET: /Employees/Delete/5
@@ -77,11 +82,14 @@ namespace GAB.Web.EmployeeRecords.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Employee employee = await _employeeRecordsApiClient.GetById(id);
+
             if (employee == null)
             {
                 return HttpNotFound();
             }
+
             return View(employee);
         }
 
@@ -91,6 +99,7 @@ namespace GAB.Web.EmployeeRecords.Controllers
         public async Task<ActionResult> DeleteConfirmed([Bind(Include = "Id")] string id)
         {
             await _employeeRecordsApiClient.Delete(id);
+
             return RedirectToAction("Index");
         }
     }
