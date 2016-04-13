@@ -2,9 +2,16 @@
 {
     public class CapacityCalculator
     {
-        public static Report CalculateForEmployee(ResourcePlan resourcePlan)
+        public static double CalculateUtilizationForEmployee(ResourcePlan resourcePlan)
         {
-            return new Report();
+            double hoursPlanned = GetHoursPlanned(resourcePlan);
+
+            return hoursPlanned / WorkDayConstants.FullWorkDayDurationInHours * 100;
+        }
+
+        private static int GetHoursPlanned(ResourcePlan resourcePlan)
+        {
+            return (resourcePlan.To - resourcePlan.From).Hours;
         }
     }
 }

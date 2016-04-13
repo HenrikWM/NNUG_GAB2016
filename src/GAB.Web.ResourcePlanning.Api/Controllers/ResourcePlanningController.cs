@@ -45,7 +45,10 @@ namespace GAB.Web.ResourcePlanning.Api.Controllers
                 return Request.CreateResponse(HttpStatusCode.NotFound);
 
             // Create resource plan for employee
-            ResourcePlan resourcePlanForEmployee = ResourcePlan.Create(employee.Id, planForEmployeeRequest.PlanStartsAt, planForEmployeeRequest.PlanEndsAt);
+            ResourcePlan resourcePlanForEmployee = ResourcePlan.Create(
+                employee.Id,
+                planForEmployeeRequest.PlanStartsAt,
+                planForEmployeeRequest.PlanEndsAt);
 
             IEnumerable<ResourcePlan> existingResourcePlans = DocumentDBRepository<ResourcePlan>.GetAllItems();
 

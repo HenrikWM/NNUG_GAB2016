@@ -54,6 +54,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Domain\ResourcePlanning\CapacityCalculatorTests.cs" />
     <Compile Include="Domain\ResourcePlanning\ResourcePlanOverlappingTests.cs" />
     <Compile Include="Domain\ResourcePlanning\ResourcePlanTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

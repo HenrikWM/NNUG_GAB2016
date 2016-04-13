@@ -37,7 +37,9 @@ namespace GAB.Web.Calculations.Api.Controllers
             if (employee == null)
                 return Request.CreateResponse(HttpStatusCode.NotFound);
                 
-            Report report = CapacityCalculator.CalculateForEmployee(resourcePlan);
+            double utilizationForEmployeeInPercent = CapacityCalculator.CalculateUtilizationForEmployee(resourcePlan);
+
+            Report report = new Report { UtilizationForEmployeeInPercent = utilizationForEmployeeInPercent };
 
             return Request.CreateResponse(HttpStatusCode.OK, report);
         }
