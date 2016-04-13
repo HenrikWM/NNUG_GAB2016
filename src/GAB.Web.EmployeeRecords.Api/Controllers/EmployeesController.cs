@@ -76,7 +76,6 @@ namespace GAB.Web.EmployeeRecords.Api.Controllers
         /// <summary>
         /// Updates an employee
         /// </summary>
-        /// <param name="id">Employee id</param>
         /// <param name="employee">The updated employee</param>
         /// <remarks>Updates an employee in the database</remarks>
         /// <response code="400">Bad request</response>

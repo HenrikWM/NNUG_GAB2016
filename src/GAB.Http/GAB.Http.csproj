@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="ApiClients\BaseApiClient.cs" />
     <Compile Include="ApiClients\EmployeeRecordsApiClient.cs" />
+    <Compile Include="ApiClients\PlanningApiClient.cs" />
     <Compile Include="ApiClients\ReportsApiClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
