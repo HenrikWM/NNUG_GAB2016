@@ -1,9 +1,12 @@
 ﻿using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
+using System.Web.Http.Results;
 using GAB.Core.Domain;
+using GAB.Core.Domain.ResourcePlanning;
 using GAB.Core.Repositories.DocumentDB;
 
 namespace GAB.Web.ResourcePlanning.Api.Controllers
@@ -47,6 +50,14 @@ namespace GAB.Web.ResourcePlanning.Api.Controllers
             if (string.IsNullOrEmpty(resourcePlan.Id))
             {
                 return BadRequest();
+            }
+            var existingResourcePlans = DocumentDBRepository< ResourcePlan>.GetAllItems();
+            if (ResourcePlanOverlapping.HasOverlapping(resourcePlan, existingResourcePlans))
+            {
+                return new BadRequestErrorMessageResult(
+                    string.Format(
+                        "New resource plan starting on {0} would overlap with existing resource plan for employee {1}",
+                        resourcePlan.From, resourcePlan.EmployeeId), this);
             }
 
             await DocumentDBRepository<ResourcePlan>.UpdateItemAsync(resourcePlan.Id, resourcePlan);

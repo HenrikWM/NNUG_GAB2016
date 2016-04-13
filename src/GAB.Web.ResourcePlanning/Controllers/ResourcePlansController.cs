@@ -11,7 +11,7 @@ using GAB.Web.ResourcePlanning.Models;
 
 namespace GAB.Web.ResourcePlanning.Controllers
 {
-    public class PlanningController : Controller
+    public class ResourcePlansController : Controller
     {
         // GET: Planning
         public async Task<ActionResult> Index()
@@ -27,16 +27,20 @@ namespace GAB.Web.ResourcePlanning.Controllers
 
         public async Task<ActionResult> Save(WorkPlanViewModel viewmodel)
         {
-            PlanningApiClient client = new PlanningApiClient(ConfigurationManager.AppSettings["PlanningApiBaseUrl"]);
+            ResourcePlansApiClient client = new ResourcePlansApiClient(ConfigurationManager.AppSettings["ResourcePlansApiBaseUrl"]);
+
+            var fromDateTime = viewmodel.StartDate - viewmodel.StartTime;
+            var toDateTime = viewmodel.StartDate - viewmodel.EndTime +
+                             (viewmodel.EndTime > viewmodel.StartTime ? TimeSpan.Zero : new TimeSpan(1, 0, 0, 0));
+
             if (viewmodel.Id == null)
             {
                 await client.Create(new ResourcePlan
                 {
                     Id = viewmodel.Id,
                     EmployeeId = viewmodel.EmployeeId,
-                    From = viewmodel.StartTime,
-                    To = viewmodel.EndTime
-
+                    From = fromDateTime,
+                    To = toDateTime
                 });
             }
             else
@@ -45,13 +49,12 @@ namespace GAB.Web.ResourcePlanning.Controllers
                 {
                     Id = viewmodel.Id,
                     EmployeeId = viewmodel.EmployeeId,
-                    From = viewmodel.StartTime,
-                    To = viewmodel.EndTime
-
+                    From = fromDateTime,
+                    To = toDateTime
                 });
             }
 
-            return RedirectToAction("Index", "Planning");
+            return RedirectToAction("Index", "ResourcePlans");
 
         }
     }

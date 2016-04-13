@@ -16,7 +16,7 @@ namespace GAB.Web.ResourcePlanning
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "ResourcePlans", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

@@ -1,0 +1,39 @@
+﻿@model GAB.Web.ResourcePlanning.Models.WorkPlanViewModel
+
+@{
+    ViewBag.Title = "Resource planning";
+   
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("Save", "ResourcePlans"))
+{
+    
+    <div class="form-horizontal">
+        <div>Register work period for employee</div>
+        <div class="form-group">
+            <label for="Employees" class="col-sm-2">Select employee</label><select name="EmployeeId" class="col-sm-3 form-control">
+                @foreach (var emp in Model.Employees)
+                {
+                    <option value="@emp.Id">@emp.Name</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="StartDate" class="col-sm-2">Starting at </label><input type="time" name="StartDate" class="col-sm-3 form-control" />
+        </div>
+        <div class="form-group">
+            <label for="StartTime" class="col-sm-2">Starting at </label><input type="time" name="StartTime" class="col-sm-3 form-control"/>
+        </div>
+        <div class="form-group">
+            <label for="EndTime" class="col-sm-2">Ending at</label><input type="time" name="EndTime" class="col-sm-3 form-control"/>
+        </div>
+        <div class="form-group" >
+            <label for="Description"class="col-sm-2">Description </label><input type="text" name="Description" class="col-sm-3 form-control"/>
+        </div>
+        <div class="form-group" >
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+}
