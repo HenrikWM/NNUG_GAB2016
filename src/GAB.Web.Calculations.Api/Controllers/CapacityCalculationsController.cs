@@ -9,6 +9,8 @@ using GAB.Http.ApiClients;
 
 namespace GAB.Web.Calculations.Api.Controllers
 {
+    using System;
+
     using GAB.Core.Domain.ResourcePlanning;
 
     public class CapacityCalculationsController : ApiController
@@ -42,6 +44,7 @@ namespace GAB.Web.Calculations.Api.Controllers
             double utilizationForDepartmentInPercent = CapacityCalculator.CalculateUtilizationForDepartment(resourcePlan);
         
             Report report = new Report {
+                Created = DateTime.UtcNow,
                 EmployeeName = employee.Name,
                 EmployeeDepartment = employee.Department,
                 UtilizationForEmployeeInPercent = utilizationForEmployeeInPercent,
