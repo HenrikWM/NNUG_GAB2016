@@ -12,6 +12,7 @@
     public class ResourcePlanTests
     {
         private const string FakeEmployeeId = "123";
+        private const string FakeEmployeeDepartment = "ABC";
 
         [Test]
         [ExpectedException(typeof(InvalidOperationException))]
@@ -23,7 +24,7 @@
             ResourcePlan expected = new ResourcePlan { EmployeeId = FakeEmployeeId, From = startAt, To = endAt };
 
             // Act
-            ResourcePlan actual = ResourcePlan.Create(FakeEmployeeId, startAt, endAt);
+            ResourcePlan actual = ResourcePlan.Create(FakeEmployeeId, FakeEmployeeDepartment, startAt, endAt);
 
             // Assert
             actual.ShouldEqual(expected);
@@ -38,7 +39,7 @@
             DateTime endAt = DateTime.UtcNow.AddDays(-1);
 
             // Act
-            ResourcePlan.Create(FakeEmployeeId, startAt, endAt);
+            ResourcePlan.Create(FakeEmployeeId, FakeEmployeeDepartment, startAt, endAt);
         }
 
         [Test]
@@ -50,7 +51,7 @@
             DateTime endAt = DateTime.UtcNow.AddMonths(-1);
 
             // Act
-            ResourcePlan.Create(FakeEmployeeId, startAt, endAt);
+            ResourcePlan.Create(FakeEmployeeId, FakeEmployeeDepartment, startAt, endAt);
         }
 
         [Test]
@@ -62,7 +63,7 @@
             DateTime endAt = DateTime.UtcNow.AddYears(-1);
 
             // Act
-            ResourcePlan.Create(FakeEmployeeId, startAt, endAt);
+            ResourcePlan.Create(FakeEmployeeId, FakeEmployeeDepartment, startAt, endAt);
         }
     }
 }

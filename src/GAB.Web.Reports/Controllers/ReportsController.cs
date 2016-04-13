@@ -20,25 +20,5 @@ namespace GAB.Web.Reports.Controllers
 
             return View("Index", reports.OrderByDescending(o => o.Created));
         }
-
-        public ActionResult Persons()
-        {
-            return View();
-        }
-
-        public ActionResult WorkHours()
-        {
-            return View();
-        }
-
-        public ActionResult Capacity()
-        {
-            return View();
-        }
-
-        public ActionResult Costs()
-        {
-            return View();
-        }
     }
 }

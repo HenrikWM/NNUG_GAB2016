@@ -19,7 +19,7 @@ namespace GAB.Web.ResourcePlanning.Api
                 routeTemplate: "api/resourceplanning/plan/employee/{employeeId}",
                 defaults: new
                 {
-                    controller = "ResourcePlanning",
+                    controller = "ResourcePlanningForEmployee",
                     action = "planForEmployee"
                 }
             );

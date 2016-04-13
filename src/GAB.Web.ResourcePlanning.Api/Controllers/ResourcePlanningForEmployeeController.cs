@@ -17,9 +17,9 @@ namespace GAB.Web.ResourcePlanning.Api.Controllers
     using GAB.Core.Domain.ResourcePlanning;
     using GAB.Web.ResourcePlanning.Api.Models;
 
-    public class ResourcePlanningController : ApiController
+    public class ResourcePlanningForEmployeeController : ApiController
     {
-        private readonly EmployeeRecordsApiClient _employeeRecordsApiClient =
+        private readonly EmployeeRecordsApiClient employeeRecordsApiClient =
             new EmployeeRecordsApiClient(ConfigurationManager.AppSettings["EmployeeRecordsApiBaseUrl"]);
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace GAB.Web.ResourcePlanning.Api.Controllers
             if (string.IsNullOrEmpty(employeeId))
                 return Request.CreateResponse(HttpStatusCode.BadRequest);
 
-            Employee employee = await _employeeRecordsApiClient.GetById(employeeId);
+            Employee employee = await employeeRecordsApiClient.GetById(employeeId);
 
             if (employee == null)
                 return Request.CreateResponse(HttpStatusCode.NotFound);
@@ -47,6 +47,7 @@ namespace GAB.Web.ResourcePlanning.Api.Controllers
             // Create resource plan for employee
             ResourcePlan resourcePlanForEmployee = ResourcePlan.Create(
                 employee.Id,
+                employee.Department,
                 planForEmployeeRequest.PlanStartsAt,
                 planForEmployeeRequest.PlanEndsAt);
 

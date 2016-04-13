@@ -9,11 +9,6 @@
             return hoursPlanned / WorkDayConstants.FullWorkDayDurationInHours * 100;
         }
 
-        public static double CalculateUtilizationForDepartment(ResourcePlan resourcePlan)
-        {
-            return 0; //TODO: Implement
-        }
-
         private static int GetHoursPlanned(ResourcePlan resourcePlan)
         {
             return (resourcePlan.To - resourcePlan.From).Hours;

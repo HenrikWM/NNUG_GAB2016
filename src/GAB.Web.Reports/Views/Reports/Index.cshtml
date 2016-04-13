@@ -15,19 +15,17 @@
         <th>@Html.DisplayNameFor(model => model.EmployeeDepartment)</th>
         <th>Capacity</th>
         <th>@Html.DisplayNameFor(model => model.UtilizationForEmployeeInPercent)</th>
-        <th>@Html.DisplayNameFor(model => model.UtilizationForDepartmentInPercent)</th>
         <th></th>
     </tr>
 
     @foreach (Report item in Model)
     {
         <tr>
-            <td>@Html.DisplayFor(modelItem => item.Created.ToLongDateString()) @Html.DisplayFor(modelItem => item.Created.ToLongTimeString())</td>
+            <td>@Html.DisplayFor(modelItem => item.Created)</td>
             <td>@Html.DisplayFor(modelItem => item.EmployeeName)</td>
             <td>@Html.DisplayFor(modelItem => item.EmployeeDepartment)</td>
-            <td>@WorkDayConstants.FullWorkDayDurationInHours</td>
+            <td>@WorkDayConstants.FullWorkDayDurationInHours hrs</td>
             <td>@Html.DisplayFor(modelItem => item.UtilizationForEmployeeInPercent) %</td>
-            <td>@Html.DisplayFor(modelItem => item.UtilizationForDepartmentInPercent) %</td>
             <td></td>
         </tr>
     }

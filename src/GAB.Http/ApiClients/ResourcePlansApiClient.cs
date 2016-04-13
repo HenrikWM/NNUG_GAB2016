@@ -4,13 +4,12 @@ using GAB.Core.Domain;
 
 namespace GAB.Http.ApiClients
 {
-    public class PlanningApiClient : BaseApiClient<ResourcePlan>
+    public class ResourcePlansApiClient : BaseApiClient<ResourcePlan>
     {
-        public PlanningApiClient(string baseUrl)  : base(baseUrl) 
+        public ResourcePlansApiClient(string baseUrl) : base(baseUrl) 
         {
             
         }
-
 
         public async Task<IEnumerable<ResourcePlan>> Get()
         {

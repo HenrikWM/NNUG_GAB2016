@@ -15,7 +15,7 @@ namespace GAB.Web.Calculations.Api.Controllers
 
     public class CapacityCalculationsController : ApiController
     {
-        private readonly EmployeeRecordsApiClient _employeeRecordsApiClient =
+        private readonly EmployeeRecordsApiClient employeeRecordsApiClient =
                     new EmployeeRecordsApiClient(ConfigurationManager.AppSettings["EmployeeRecordsApiBaseUrl"]);
 
         /// <summary>
@@ -34,21 +34,18 @@ namespace GAB.Web.Calculations.Api.Controllers
                 return Request.CreateResponse(HttpStatusCode.BadRequest);
             }
 
-            Employee employee = await _employeeRecordsApiClient.GetById(resourcePlan.EmployeeId);
+            Employee employee = await employeeRecordsApiClient.GetById(resourcePlan.EmployeeId);
 
             if (employee == null)
                 return Request.CreateResponse(HttpStatusCode.NotFound);
                 
             double utilizationForEmployeeInPercent = CapacityCalculator.CalculateUtilizationForEmployee(resourcePlan);
-
-            double utilizationForDepartmentInPercent = CapacityCalculator.CalculateUtilizationForDepartment(resourcePlan);
-        
+            
             Report report = new Report {
                 Created = DateTime.UtcNow,
                 EmployeeName = employee.Name,
                 EmployeeDepartment = employee.Department,
-                UtilizationForEmployeeInPercent = utilizationForEmployeeInPercent,
-                UtilizationForDepartmentInPercent = utilizationForDepartmentInPercent
+                UtilizationForEmployeeInPercent = utilizationForEmployeeInPercent
             };
 
             return Request.CreateResponse(HttpStatusCode.OK, report);

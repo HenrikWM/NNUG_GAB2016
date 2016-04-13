@@ -11,6 +11,8 @@ using Microsoft.Azure.Documents;
 
 namespace GAB.Web.EmployeeRecords.Api.Controllers
 {
+    using System;
+
     public class EmployeesController : ApiController
     {
         /// <summary>

@@ -27,8 +27,8 @@ namespace GAB.Core.Domain
                 EmployeeId = employeeId
             };
         }
-
-        public static ResourcePlan Create(string employeeId, DateTime startAt, DateTime endsAt)
+        
+        public static ResourcePlan Create(string employeeId, string department, DateTime startAt, DateTime endsAt)
         {
             EnsureStartAndEndAreOnSameDay(startAt, endsAt);
 

@@ -67,8 +67,9 @@
             };
 
             ResourcePlan resourcePlan = ResourcePlan.Create(
-                employeeId, 
-                new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, resourcePlanStartHour, 0, 0), 
+                employeeId,
+                string.Empty,
+                new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, resourcePlanStartHour, 0, 0),
                 new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, resourcePlanEndHour, 0, 0));
 
             // Act
