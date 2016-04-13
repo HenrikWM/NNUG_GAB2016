@@ -18,7 +18,7 @@ namespace GAB.Web.Reports.Controllers
         {
             IEnumerable<Report> reports = await _reportsApiClient.Get(); 
 
-            return View("Index", reports.OrderByDescending(o => o.EmployeeName));
+            return View("Index", reports.OrderByDescending(o => o.Created));
         }
 
         public ActionResult Persons()
