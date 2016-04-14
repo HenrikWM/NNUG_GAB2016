@@ -6,9 +6,9 @@ namespace GAB.Http.ApiClients
 {
     public class ResourcePlansApiClient : BaseApiClient<ResourcePlan>
     {
-        public ResourcePlansApiClient(string baseUrl) : base(baseUrl) 
+        public ResourcePlansApiClient(string baseUrl) : base(baseUrl)
         {
-            
+
         }
 
         public async Task<IEnumerable<ResourcePlan>> Get()
@@ -45,6 +45,5 @@ namespace GAB.Http.ApiClients
 
             return await Update(url, resourcePlan);
         }
-    
-}
+    }
 }

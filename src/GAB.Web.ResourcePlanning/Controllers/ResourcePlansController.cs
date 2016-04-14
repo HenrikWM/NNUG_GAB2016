@@ -16,15 +16,14 @@ namespace GAB.Web.ResourcePlanning.Controllers
         // GET: Planning
         public async Task<ActionResult> Index()
         {
-
             EmployeeRecordsApiClient client = new EmployeeRecordsApiClient(ConfigurationManager.AppSettings["EmployeeRecordsApiBaseUrl"]);
+
             var employees = await client.Get();
             var viewmodel = new WorkPlanViewModel();
             viewmodel.Employees = employees;
             return View(viewmodel);
         }
         
-
         public async Task<ActionResult> Save(WorkPlanViewModel viewmodel)
         {
             ResourcePlansApiClient client = new ResourcePlansApiClient(ConfigurationManager.AppSettings["ResourcePlansApiBaseUrl"]);
@@ -55,7 +54,6 @@ namespace GAB.Web.ResourcePlanning.Controllers
             }
 
             return RedirectToAction("Index", "ResourcePlans");
-
         }
     }
 }
