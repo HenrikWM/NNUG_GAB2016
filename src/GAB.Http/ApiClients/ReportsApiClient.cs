@@ -4,7 +4,7 @@ using GAB.Core.Domain;
 
 namespace GAB.Http.ApiClients
 {
-    public class ReportsApiClient : BaseApiClient<Report>
+    public class ReportsApiClient : BaseApiClient<Report, Report>
     {
         public ReportsApiClient(string baseUrl) 
             : base(baseUrl)
@@ -16,6 +16,13 @@ namespace GAB.Http.ApiClients
             string url = "/api/reports";
 
             return await Get(url);
+        }
+
+        public async Task<Report> Create(Report report)
+        {
+            string url = "/api/reports";
+
+            return await Create(url, report);
         }
     }
 }

@@ -46,12 +46,6 @@ namespace GAB.Core.Domain
                 startAt.Month != endsAt.Month ||
                 startAt.Day != endsAt.Day)
                 throw new InvalidOperationException(string.Format("{0} and {1} must be on the same day", startAt, endsAt));
-                
-        }
-
-        private static void EnsureStartAndEndAreOnSameDay()
-        {
-            throw new NotImplementedException();
         }
     }
 }

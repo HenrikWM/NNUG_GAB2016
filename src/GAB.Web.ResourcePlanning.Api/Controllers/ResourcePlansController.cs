@@ -51,7 +51,8 @@ namespace GAB.Web.ResourcePlanning.Api.Controllers
             {
                 return BadRequest();
             }
-            var existingResourcePlans = DocumentDBRepository< ResourcePlan>.GetAllItems();
+
+            var existingResourcePlans = DocumentDBRepository<ResourcePlan>.GetAllItems();
             if (ResourcePlanOverlapping.HasOverlapping(resourcePlan, existingResourcePlans))
             {
                 return new BadRequestErrorMessageResult(
@@ -74,6 +75,15 @@ namespace GAB.Web.ResourcePlanning.Api.Controllers
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
+            }
+
+            var existingResourcePlans = DocumentDBRepository<ResourcePlan>.GetAllItems();
+            if (ResourcePlanOverlapping.HasOverlapping(resourcePlan, existingResourcePlans))
+            {
+                return new BadRequestErrorMessageResult(
+                    string.Format(
+                        "New resource plan starting on {0} would overlap with existing resource plan for employee {1}",
+                        resourcePlan.From, resourcePlan.EmployeeId), this);
             }
 
             await DocumentDBRepository<ResourcePlan>.CreateItemAsync(resourcePlan);

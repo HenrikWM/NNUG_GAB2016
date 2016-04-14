@@ -1,11 +1,10 @@
 using System.Collections.Generic;
-using System.Security.Policy;
 using System.Threading.Tasks;
 using GAB.Core.Domain;
 
 namespace GAB.Http.ApiClients
 {
-    public class EmployeeRecordsApiClient : BaseApiClient<Employee>
+    public class EmployeeRecordsApiClient : BaseApiClient<Employee, Employee>
     {
         public EmployeeRecordsApiClient(string baseUrl) 
             : base(baseUrl)

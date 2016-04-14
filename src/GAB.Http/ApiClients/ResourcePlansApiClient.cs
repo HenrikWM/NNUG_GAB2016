@@ -4,9 +4,10 @@ using GAB.Core.Domain;
 
 namespace GAB.Http.ApiClients
 {
-    public class ResourcePlansApiClient : BaseApiClient<ResourcePlan>
+    public class ResourcePlansApiClient : BaseApiClient<ResourcePlan, ResourcePlan>
     {
-        public ResourcePlansApiClient(string baseUrl) : base(baseUrl)
+        public ResourcePlansApiClient(string baseUrl) 
+            : base(baseUrl)
         {
 
         }

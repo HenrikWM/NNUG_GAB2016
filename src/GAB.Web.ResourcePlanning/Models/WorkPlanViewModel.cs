@@ -14,5 +14,6 @@ namespace GAB.Web.ResourcePlanning.Models
         public string Description { get; set; }
 
         public IEnumerable<Employee> Employees { get; set; }
+        public IEnumerable<ResourcePlanViewModel> ResourcePlans { get; set; }
     }
 }

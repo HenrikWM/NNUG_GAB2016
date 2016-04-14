@@ -15,7 +15,7 @@ namespace GAB.Web.Calculations.Api.Controllers
 
     public class CapacityCalculationsController : ApiController
     {
-        private readonly EmployeeRecordsApiClient employeeRecordsApiClient =
+        private readonly EmployeeRecordsApiClient _employeeRecordsApiClient =
                     new EmployeeRecordsApiClient(ConfigurationManager.AppSettings["EmployeeRecordsApiBaseUrl"]);
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace GAB.Web.Calculations.Api.Controllers
                 return Request.CreateResponse(HttpStatusCode.BadRequest);
             }
 
-            Employee employee = await employeeRecordsApiClient.GetById(resourcePlan.EmployeeId);
+            Employee employee = await _employeeRecordsApiClient.GetById(resourcePlan.EmployeeId);
 
             if (employee == null)
                 return Request.CreateResponse(HttpStatusCode.NotFound);

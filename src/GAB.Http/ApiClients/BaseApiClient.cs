@@ -8,7 +8,9 @@ using Newtonsoft.Json;
 
 namespace GAB.Http.ApiClients
 {
-    public abstract class BaseApiClient<T> where T : class
+    public abstract class BaseApiClient<TEntity, TGReturnEntity> 
+        where TEntity : class
+        where TGReturnEntity : class
     {
         private readonly string _baseUrl;
 
@@ -17,7 +19,7 @@ namespace GAB.Http.ApiClients
             _baseUrl = baseUrl;
         }
 
-        protected async Task<IEnumerable<T>> Get(string url)
+        protected async Task<IEnumerable<TGReturnEntity>> Get(string url)
         {
             using (var client = new HttpClient())
             {
@@ -28,13 +30,13 @@ namespace GAB.Http.ApiClients
                 HttpResponseMessage response = await client.GetAsync(url);
                 if (response.IsSuccessStatusCode)
                 {
-                    return await response.Content.ReadAsAsync<IEnumerable<T>>();
+                    return await response.Content.ReadAsAsync<IEnumerable<TGReturnEntity>>();
                 }
             }
-            return new List<T>();
+            return new List<TGReturnEntity>();
         }
 
-        protected async Task<T> GetById(string url, string id)
+        protected async Task<TGReturnEntity> GetById(string url, string id)
         {
             using (var client = new HttpClient())
             {
@@ -45,13 +47,13 @@ namespace GAB.Http.ApiClients
                 HttpResponseMessage response = await client.GetAsync(url);
                 if (response.IsSuccessStatusCode)
                 {
-                    return await response.Content.ReadAsAsync<T>();
+                    return await response.Content.ReadAsAsync<TGReturnEntity>();
                 }
             }
             return null;
         }
 
-        protected async Task<T> Create(string url, T entity)
+        protected async Task<TGReturnEntity> Create(string url, TEntity entity)
         {
             using (var client = new HttpClient())
             {
@@ -65,7 +67,7 @@ namespace GAB.Http.ApiClients
                 HttpResponseMessage response = await client.PostAsync(url, content);
                 if (response.IsSuccessStatusCode)
                 {
-                    return await response.Content.ReadAsAsync<T>();
+                    return await response.Content.ReadAsAsync<TGReturnEntity>();
                 }
             }
             return null;
@@ -90,7 +92,7 @@ namespace GAB.Http.ApiClients
             return false;
         }
 
-        protected async Task<bool> Update(string url, T entity)
+        protected async Task<bool> Update(string url, TEntity entity)
         {
             using (var client = new HttpClient())
             {
