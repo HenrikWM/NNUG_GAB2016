@@ -156,10 +156,6 @@
       <Project>{00e81ac0-8d1f-44d3-8a42-fe11ae46fd05}</Project>
       <Name>GAB.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\GAB.Http\GAB.Http.csproj">
-      <Project>{4f59923b-102a-499d-a406-0c530cf293ff}</Project>
-      <Name>GAB.Http</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

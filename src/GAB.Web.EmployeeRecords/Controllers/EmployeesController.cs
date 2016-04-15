@@ -4,19 +4,15 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using GAB.Core.Domain;
-using GAB.Http.ApiClients;
 
 namespace GAB.Web.EmployeeRecords.Controllers
 {
     public class EmployeesController : Controller
     {
-        private readonly EmployeeRecordsApiClient _employeeRecordsApiClient =
-                  new EmployeeRecordsApiClient(ConfigurationManager.AppSettings["EmployeeRecordsApiBaseUrl"]);
-
         // GET: /Employees/
         public async Task<ActionResult> Index()
         {
-            IEnumerable<Employee> employees = await _employeeRecordsApiClient.Get();
+            IEnumerable<Employee> employees = null; //TODO: Implement an integration to EmployeeRecordsApi and GetAll
 
             return View(employees);
         }
@@ -37,7 +33,7 @@ namespace GAB.Web.EmployeeRecords.Controllers
                 return View(employee);
             }
 
-            await _employeeRecordsApiClient.Create(employee);
+            //TODO: Implement an integration to EmployeeRecordsApi and Create
 
             return RedirectToAction("Index");
         }
@@ -50,7 +46,7 @@ namespace GAB.Web.EmployeeRecords.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            Employee employee = await _employeeRecordsApiClient.GetById(id);
+            Employee employee = null; //TODO: Implement an integration to EmployeeRecordsApi and GetById
 
             if (employee == null)
             {
@@ -70,7 +66,7 @@ namespace GAB.Web.EmployeeRecords.Controllers
                 return View(employee);
             }
 
-            await _employeeRecordsApiClient.Update(employee);
+            //TODO: Implement an integration to EmployeeRecordsApi and Update
 
             return RedirectToAction("Index");
         }
@@ -83,7 +79,7 @@ namespace GAB.Web.EmployeeRecords.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            Employee employee = await _employeeRecordsApiClient.GetById(id);
+            Employee employee = null; //TODO: Implement an integration to EmployeeRecordsApi and GetById
 
             if (employee == null)
             {
@@ -98,7 +94,7 @@ namespace GAB.Web.EmployeeRecords.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed([Bind(Include = "Id")] string id)
         {
-            await _employeeRecordsApiClient.Delete(id);
+            //TODO: Implement an integration to EmployeeRecordsApi and Delete
 
             return RedirectToAction("Index");
         }

@@ -1,28 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using GAB.Core.Domain;
-using GAB.Http.ApiClients;
 using GAB.Web.ResourcePlanning.Models;
 
 namespace GAB.Web.ResourcePlanning.Controllers
 {
     public class ResourcePlansController : Controller
     {
-        readonly ResourcePlansApiClient _resourcePlansApiClient = new ResourcePlansApiClient(ConfigurationManager.AppSettings["ResourcePlansApiBaseUrl"]);
-        readonly EmployeeRecordsApiClient _employeeRecordsApiClient = new EmployeeRecordsApiClient(ConfigurationManager.AppSettings["EmployeeRecordsApiBaseUrl"]);
-        readonly CalculationsApiClient _calculationsApiClient = new CalculationsApiClient(ConfigurationManager.AppSettings["CalculationsApiBaseUrl"]);
-        readonly ReportsApiClient _reportsApiClient = new ReportsApiClient(ConfigurationManager.AppSettings["ReportsApiBaseUrl"]);
-        
         // GET: Planning
         public async Task<ActionResult> Index()
         {
-            var employees = await _employeeRecordsApiClient.Get();
-            var resourcePlans = await _resourcePlansApiClient.Get();
-            
+            IEnumerable<Employee> employees = Enumerable.Empty<Employee>(); //TODO: Implement an integration to EmployeeRecordsApi and Get
+            IEnumerable<ResourcePlan> resourcePlans = Enumerable.Empty<ResourcePlan>(); //TODO: Implement an integration to ResourcePlanningApi and Get
+
             //TODO: Try adding a link to a report once one has been generated for a resource plan. Display a Calculate-link if one doesn't exist
 
             var resourcePlanViewModels = CreateResourcePlanViewModels(resourcePlans, employees);
@@ -42,12 +35,14 @@ namespace GAB.Web.ResourcePlanning.Controllers
             var toDateTime = viewmodel.StartDate + viewmodel.EndTime +
                              (viewmodel.EndTime > viewmodel.StartTime ? TimeSpan.Zero : new TimeSpan(1, 0, 0, 0));
 
-            await _resourcePlansApiClient.Create(new ResourcePlan
+            ResourcePlan resourcePlan = new ResourcePlan
             {
                 EmployeeId = viewmodel.EmployeeId,
                 From = fromDateTime,
                 To = toDateTime
-            });
+            };
+
+            //TODO: Implement an integration to ResourcePlanningApi and Create
 
             return RedirectToAction("Index", "ResourcePlans");
         }
@@ -55,11 +50,11 @@ namespace GAB.Web.ResourcePlanning.Controllers
         // GET: 
         public async Task<ActionResult> CalculateCapacity(string id)
         {
-            var resourcePlan = await _resourcePlansApiClient.GetById(id);
-            
-            Report report = await _calculationsApiClient.CalculateCapacity(resourcePlan);
+            ResourcePlan resourcePlan = null; //TODO: Implement an integration to ResourcePlanningApi and GetById
 
-            await _reportsApiClient.Create(report);
+            Report report = null; //TODO: Implement an integration to CapacityCalculationsApi and CalculateCapacityForResourcePlan
+
+            // TODO: Implement an integration to ReportsApi and Create
 
             return RedirectToAction("Index");
         }

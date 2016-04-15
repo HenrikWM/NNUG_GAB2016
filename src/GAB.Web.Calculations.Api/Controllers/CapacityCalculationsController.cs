@@ -5,8 +5,6 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using GAB.Core.Domain;
-using GAB.Http.ApiClients;
-
 namespace GAB.Web.Calculations.Api.Controllers
 {
     using System;
@@ -15,9 +13,6 @@ namespace GAB.Web.Calculations.Api.Controllers
 
     public class CapacityCalculationsController : ApiController
     {
-        private readonly EmployeeRecordsApiClient _employeeRecordsApiClient =
-                    new EmployeeRecordsApiClient(ConfigurationManager.AppSettings["EmployeeRecordsApiBaseUrl"]);
-
         /// <summary>
         /// Calculates capacity and returns a report
         /// </summary>
@@ -34,7 +29,7 @@ namespace GAB.Web.Calculations.Api.Controllers
                 return Request.CreateResponse(HttpStatusCode.BadRequest);
             }
 
-            Employee employee = await _employeeRecordsApiClient.GetById(resourcePlan.EmployeeId);
+            Employee employee = null; //TODO: Implement an integration to EmployeeRecordsApi and GetById
 
             if (employee == null)
                 return Request.CreateResponse(HttpStatusCode.NotFound);
