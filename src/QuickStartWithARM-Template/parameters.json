@@ -1,0 +1,33 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "databaseAccounts_nnug_gab2016_xyz_docdb_name": {
+            "value": "nnug-gab2016-xyz-docdb"
+        },
+        "storageAccounts_nnuggab2016xyzstorage_name": {
+            "value": "nnuggab2016xyzstorage"
+        },
+        "serverfarms_nnug_gab2016_xyz_name": {
+            "value": "nnug-gab2016-xyz"
+        },
+        "sites_nnug_gab2016_xyz_employeerecords_name": {
+            "value": "nnug-gab2016-xyz-employeerecords"
+        },
+        "sites_nnug_gab2016_xyz_calculations_api_name": {
+            "value": "nnug-gab2016-xyz-calculations-api"
+        },
+        "sites_nnug_gab2016_xyz_employeerecords_api_name": {
+            "value": "nnug-gab2016-xyz-employeerecords-api"
+        },
+        "sites_nnug_gab2016_xyz_reports_name": {
+            "value": "nnug-gab2016-xyz-reports"
+        },
+        "sites_nnug_gab2016_xyz_resourceplanning_api_name": {
+            "value": "nnug-gab2016-xyz-resourceplanning-api"
+        },
+        "sites_nnug_gab2016_xyz_reports_api_name": {
+            "value": "nnug-gab2016-xyz-reports-api"
+        }
+     }
+}
