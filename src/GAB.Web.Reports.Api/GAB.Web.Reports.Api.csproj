@@ -100,7 +100,6 @@
     <Content Include="Web.config" />
     <Content Include="packages.config" />
     <Content Include="HiddenAppSettings.config.example" />
-    <Content Include="HiddenAppSettings.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>

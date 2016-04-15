@@ -99,7 +99,6 @@
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="packages.config" />
-    <Content Include="HiddenAppSettings.config" />
     <Content Include="HiddenAppSettings.config.example" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
