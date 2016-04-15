@@ -1,0 +1,327 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "databaseAccounts_nnug_gab2016_xyz_docdb_name": {
+            "defaultValue": "nnug-gab2016-xyz-docdb",
+            "type": "String"
+        },
+        "storageAccounts_nnuggab2016xyzstorage_name": {
+            "defaultValue": "nnuggab2016xyzstorage",
+            "type": "String"
+        },
+        "serverfarms_nnug_gab2016_xyz_name": {
+            "defaultValue": "nnug-gab2016-xyz",
+            "type": "String"
+        },
+        "sites_nnug_gab2016_xyz_employeerecords_name": {
+            "defaultValue": "nnug-gab2016-xyz-employeerecords",
+            "type": "String"
+        },
+        "sites_nnug_gab2016_xyz_calculations_api_name": {
+            "defaultValue": "nnug-gab2016-xyz-calculations-api",
+            "type": "String"
+        },
+        "sites_nnug_gab2016_xyz_employeerecords_api_name": {
+            "defaultValue": "nnug-gab2016-xyz-employeerecords-api",
+            "type": "String"
+        },
+        "sites_nnug_gab2016_xyz_reports_name": {
+            "defaultValue": "nnug-gab2016-xyz-reports",
+            "type": "String"
+        },
+        "sites_nnug_gab2016_xyz_resourceplanning_api_name": {
+            "defaultValue": "nnug-gab2016-xyz-resourceplanning-api",
+            "type": "String"
+        },
+        "sites_nnug_gab2016_xyz_reports_api_name": {
+            "defaultValue": "nnug-gab2016-xyz-reports-api",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "comments": "Generalized from resource: '/subscriptions/000000000-0000000-000000000/resourceGroups/nnug-gab2016-xyz/providers/Microsoft.DocumentDB/databaseAccounts/nnug-gab2016-xyz-docdb'.",
+            "type": "Microsoft.DocumentDB/databaseAccounts",
+            "kind": "DocumentDB",
+            "name": "[parameters('databaseAccounts_nnug_gab2016_xyz_docdb_name')]",
+            "apiVersion": "2015-04-08",
+            "location": "West Europe",
+            "tags": {},
+            "properties": {
+                "databaseAccountOfferType": "Standard",
+                "consistencyPolicy": {
+                    "defaultConsistencyLevel": "Session",
+                    "maxIntervalInSeconds": 5,
+                    "maxStalenessPrefix": 100
+                },
+                "name": "[parameters('databaseAccounts_nnug_gab2016_xyz_docdb_name')]"
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/000000000-0000000-000000000/resourceGroups/nnug-gab2016-xyz/providers/Microsoft.Storage/storageAccounts/nnuggab2016xyzstorage'.",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[parameters('storageAccounts_nnuggab2016xyzstorage_name')]",
+            "apiVersion": "2015-06-15",
+            "location": "westeurope",
+            "tags": {},
+            "properties": {
+                "accountType": "Standard_LRS"
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/000000000-0000000-000000000/resourceGroups/nnug-gab2016-xyz/providers/Microsoft.Web/serverfarms/nnug-gab2016-xyz'.",
+            "type": "Microsoft.Web/serverfarms",
+            "sku": {
+                "name": "F1",
+                "tier": "Free",
+                "size": "F1",
+                "family": "F",
+                "capacity": 0
+            },
+            "name": "[parameters('serverfarms_nnug_gab2016_xyz_name')]",
+            "apiVersion": "2015-08-01",
+            "location": "West Europe",
+            "properties": {
+                "name": "[parameters('serverfarms_nnug_gab2016_xyz_name')]",
+                "numberOfWorkers": 0
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/a4e18a21-72de-44ff-8d04-9821b3fada45/resourceGroups/nnug-gab2016-xyz/providers/Microsoft.Web/sites/nnug-gab2016-xyz-employeerecords'.",
+            "type": "Microsoft.Web/sites",
+            "name": "[parameters('sites_nnug_gab2016_xyz_employeerecords_name')]",
+            "apiVersion": "2015-08-01",
+            "location": "West Europe",
+            "tags": {
+                "hidden-related:/subscriptions/a4e18a21-72de-44ff-8d04-9821b3fada45/resourcegroups/nnug-gab2016-xyz/providers/Microsoft.Web/serverfarms/nnug-gab2016-xyz": "empty"
+            },
+            "properties": {
+                "name": "[parameters('sites_nnug_gab2016_xyz_employeerecords_name')]",
+                "hostNames": [
+                    "nnug-gab2016-xyz-employeerecords.azurewebsites.net"
+                ],
+                "enabledHostNames": [
+                    "nnug-gab2016-xyz-employeerecords.azurewebsites.net",
+                    "nnug-gab2016-xyz-employeerecords.scm.azurewebsites.net"
+                ],
+                "hostNameSslStates": [
+                    {
+                        "name": "[concat(parameters('sites_nnug_gab2016_xyz_employeerecords_name'),'.azurewebsites.net')]",
+                        "sslState": 0,
+                        "thumbprint": null,
+                        "ipBasedSslState": 0
+                    },
+                    {
+                        "name": "[concat(parameters('sites_nnug_gab2016_xyz_employeerecords_name'),'.scm.azurewebsites.net')]",
+                        "sslState": 0,
+                        "thumbprint": null,
+                        "ipBasedSslState": 0
+                    }
+                ],
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_nnug_gab2016_xyz_name'))]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_nnug_gab2016_xyz_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/a4e18a21-72de-44ff-8d04-9821b3fada45/resourceGroups/nnug-gab2016-xyz/providers/Microsoft.Web/sites/nnug-gab2016-xyz-calculations-api'.",
+            "type": "Microsoft.Web/sites",
+            "kind": "api",
+            "name": "[parameters('sites_nnug_gab2016_xyz_calculations_api_name')]",
+            "apiVersion": "2015-08-01",
+            "location": "West Europe",
+            "tags": {
+                "hidden-related:/subscriptions/a4e18a21-72de-44ff-8d04-9821b3fada45/resourceGroups/nnug-gab2016-xyz/providers/Microsoft.Web/serverfarms/nnug-gab2016-xyz": "empty"
+            },
+            "properties": {
+                "name": "[parameters('sites_nnug_gab2016_xyz_calculations_api_name')]",
+                "hostNames": [
+                    "nnug-gab2016-xyz-calculations-api.azurewebsites.net"
+                ],
+                "enabledHostNames": [
+                    "nnug-gab2016-xyz-calculations-api.azurewebsites.net",
+                    "nnug-gab2016-xyz-calculations-api.scm.azurewebsites.net"
+                ],
+                "hostNameSslStates": [
+                    {
+                        "name": "[concat(parameters('sites_nnug_gab2016_xyz_calculations_api_name'),'.azurewebsites.net')]",
+                        "sslState": 0,
+                        "thumbprint": null,
+                        "ipBasedSslState": 0
+                    },
+                    {
+                        "name": "[concat(parameters('sites_nnug_gab2016_xyz_calculations_api_name'),'.scm.azurewebsites.net')]",
+                        "sslState": 0,
+                        "thumbprint": null,
+                        "ipBasedSslState": 0
+                    }
+                ],
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_nnug_gab2016_xyz_name'))]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_nnug_gab2016_xyz_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/a4e18a21-72de-44ff-8d04-9821b3fada45/resourceGroups/nnug-gab2016-xyz/providers/Microsoft.Web/sites/nnug-gab2016-xyz-employeerecords-api'.",
+            "type": "Microsoft.Web/sites",
+            "kind": "api",
+            "name": "[parameters('sites_nnug_gab2016_xyz_employeerecords_api_name')]",
+            "apiVersion": "2015-08-01",
+            "location": "West Europe",
+            "tags": {
+                "hidden-related:/subscriptions/a4e18a21-72de-44ff-8d04-9821b3fada45/resourceGroups/nnug-gab2016-xyz/providers/Microsoft.Web/serverfarms/nnug-gab2016-xyz": "empty"
+            },
+            "properties": {
+                "name": "[parameters('sites_nnug_gab2016_xyz_employeerecords_api_name')]",
+                "hostNames": [
+                    "nnug-gab2016-xyz-employeerecords-api.azurewebsites.net"
+                ],
+                "enabledHostNames": [
+                    "nnug-gab2016-xyz-employeerecords-api.azurewebsites.net",
+                    "nnug-gab2016-xyz-employeerecords-api.scm.azurewebsites.net"
+                ],
+                "hostNameSslStates": [
+                    {
+                        "name": "[concat(parameters('sites_nnug_gab2016_xyz_employeerecords_api_name'),'.azurewebsites.net')]",
+                        "sslState": 0,
+                        "thumbprint": null,
+                        "ipBasedSslState": 0
+                    },
+                    {
+                        "name": "[concat(parameters('sites_nnug_gab2016_xyz_employeerecords_api_name'),'.scm.azurewebsites.net')]",
+                        "sslState": 0,
+                        "thumbprint": null,
+                        "ipBasedSslState": 0
+                    }
+                ],
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_nnug_gab2016_xyz_name'))]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_nnug_gab2016_xyz_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/a4e18a21-72de-44ff-8d04-9821b3fada45/resourceGroups/nnug-gab2016-xyz/providers/Microsoft.Web/sites/nnug-gab2016-xyz-reports'.",
+            "type": "Microsoft.Web/sites",
+            "name": "[parameters('sites_nnug_gab2016_xyz_reports_name')]",
+            "apiVersion": "2015-08-01",
+            "location": "West Europe",
+            "tags": {
+                "hidden-related:/subscriptions/a4e18a21-72de-44ff-8d04-9821b3fada45/resourcegroups/nnug-gab2016-xyz/providers/Microsoft.Web/serverfarms/nnug-gab2016-xyz": "empty"
+            },
+            "properties": {
+                "name": "[parameters('sites_nnug_gab2016_xyz_reports_name')]",
+                "hostNames": [
+                    "nnug-gab2016-xyz-reports.azurewebsites.net"
+                ],
+                "enabledHostNames": [
+                    "nnug-gab2016-xyz-reports.azurewebsites.net",
+                    "nnug-gab2016-xyz-reports.scm.azurewebsites.net"
+                ],
+                "hostNameSslStates": [
+                    {
+                        "name": "[concat(parameters('sites_nnug_gab2016_xyz_reports_name'),'.azurewebsites.net')]",
+                        "sslState": 0,
+                        "thumbprint": null,
+                        "ipBasedSslState": 0
+                    },
+                    {
+                        "name": "[concat(parameters('sites_nnug_gab2016_xyz_reports_name'),'.scm.azurewebsites.net')]",
+                        "sslState": 0,
+                        "thumbprint": null,
+                        "ipBasedSslState": 0
+                    }
+                ],
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_nnug_gab2016_xyz_name'))]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_nnug_gab2016_xyz_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/a4e18a21-72de-44ff-8d04-9821b3fada45/resourceGroups/nnug-gab2016-xyz/providers/Microsoft.Web/sites/nnug-gab2016-xyz-resourceplanning-api'.",
+            "type": "Microsoft.Web/sites",
+            "kind": "api",
+            "name": "[parameters('sites_nnug_gab2016_xyz_resourceplanning_api_name')]",
+            "apiVersion": "2015-08-01",
+            "location": "West Europe",
+            "tags": {
+                "hidden-related:/subscriptions/a4e18a21-72de-44ff-8d04-9821b3fada45/resourceGroups/nnug-gab2016-xyz/providers/Microsoft.Web/serverfarms/nnug-gab2016-xyz": "empty"
+            },
+            "properties": {
+                "name": "[parameters('sites_nnug_gab2016_xyz_resourceplanning_api_name')]",
+                "hostNames": [
+                    "nnug-gab2016-xyz-resourceplanning-api.azurewebsites.net"
+                ],
+                "enabledHostNames": [
+                    "nnug-gab2016-xyz-resourceplanning-api.azurewebsites.net",
+                    "nnug-gab2016-xyz-resourceplanning-api.scm.azurewebsites.net"
+                ],
+                "hostNameSslStates": [
+                    {
+                        "name": "[concat(parameters('sites_nnug_gab2016_xyz_resourceplanning_api_name'),'.azurewebsites.net')]",
+                        "sslState": 0,
+                        "thumbprint": null,
+                        "ipBasedSslState": 0
+                    },
+                    {
+                        "name": "[concat(parameters('sites_nnug_gab2016_xyz_resourceplanning_api_name'),'.scm.azurewebsites.net')]",
+                        "sslState": 0,
+                        "thumbprint": null,
+                        "ipBasedSslState": 0
+                    }
+                ],
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_nnug_gab2016_xyz_name'))]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_nnug_gab2016_xyz_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/a4e18a21-72de-44ff-8d04-9821b3fada45/resourceGroups/nnug-gab2016-xyz/providers/Microsoft.Web/sites/nnug-gab2016-xyz-reports-api'.",
+            "type": "Microsoft.Web/sites",
+            "kind": "api",
+            "name": "[parameters('sites_nnug_gab2016_xyz_reports_api_name')]",
+            "apiVersion": "2015-08-01",
+            "location": "West Europe",
+            "tags": {
+                "hidden-related:/subscriptions/a4e18a21-72de-44ff-8d04-9821b3fada45/resourceGroups/nnug-gab2016-xyz/providers/Microsoft.Web/serverfarms/nnug-gab2016-xyz": "empty"
+            },
+            "properties": {
+                "name": "[parameters('sites_nnug_gab2016_xyz_reports_api_name')]",
+                "hostNames": [
+                    "nnug-gab2016-xyz-reports-api.azurewebsites.net"
+                ],
+                "enabledHostNames": [
+                    "nnug-gab2016-xyz-reports-api.azurewebsites.net",
+                    "nnug-gab2016-xyz-reports-api.scm.azurewebsites.net"
+                ],
+                "hostNameSslStates": [
+                    {
+                        "name": "[concat(parameters('sites_nnug_gab2016_xyz_reports_api_name'),'.azurewebsites.net')]",
+                        "sslState": 0,
+                        "thumbprint": null,
+                        "ipBasedSslState": 0
+                    },
+                    {
+                        "name": "[concat(parameters('sites_nnug_gab2016_xyz_reports_api_name'),'.scm.azurewebsites.net')]",
+                        "sslState": 0,
+                        "thumbprint": null,
+                        "ipBasedSslState": 0
+                    }
+                ],
+                "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_nnug_gab2016_xyz_name'))]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarms_nnug_gab2016_xyz_name'))]"
+            ]
+        }
+    ]
+}
