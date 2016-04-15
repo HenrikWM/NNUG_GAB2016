@@ -22,11 +22,7 @@ namespace GAB.Core.Domain
         public string EmployeeDepartment { get; set; }
 
         [JsonProperty(PropertyName = "utilizationForEmployeeInPercent")]
-        [DisplayName("Utilization (Employee)")]
+        [DisplayName("Utilization")]
         public double UtilizationForEmployeeInPercent { get; set; }
-
-        [JsonProperty(PropertyName = "utilizationForDepartmentInPercent")]
-        [DisplayName("Utilization (Department)")]
-        public double UtilizationForDepartmentInPercent { get; set; }
     }
 }
