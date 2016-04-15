@@ -7,6 +7,8 @@ using GAB.Http.ApiClients;
 
 namespace GAB.Web.Reports.Controllers
 {
+    using System.Linq;
+
     public class ReportsController : Controller
     {
         private readonly ReportsApiClient _reportsApiClient =
@@ -16,27 +18,7 @@ namespace GAB.Web.Reports.Controllers
         {
             IEnumerable<Report> reports = await _reportsApiClient.Get(); 
 
-            return View("Index", reports);
-        }
-
-        public ActionResult Persons()
-        {
-            return View();
-        }
-
-        public ActionResult WorkHours()
-        {
-            return View();
-        }
-
-        public ActionResult Capacity()
-        {
-            return View();
-        }
-
-        public ActionResult Costs()
-        {
-            return View();
+            return View("Index", reports.OrderByDescending(o => o.Created));
         }
     }
 }

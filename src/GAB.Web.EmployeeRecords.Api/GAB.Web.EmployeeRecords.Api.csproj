@@ -29,6 +29,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\GAB.Web.EmployeeRecords.Api.XML</DocumentationFile>
+    <NoWarn>CS1591</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -98,7 +99,6 @@
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="packages.config" />
-    <Content Include="HiddenAppSettings.config" />
     <Content Include="HiddenAppSettings.config.example" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
@@ -112,6 +112,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\GAB-Web-EmployeeRecords-API - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\GABWebEmployeeRecordsAPI - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\nnug-gab2016-hwm-employeerecords-api.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

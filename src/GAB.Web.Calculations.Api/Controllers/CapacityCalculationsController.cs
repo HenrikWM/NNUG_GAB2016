@@ -9,6 +9,10 @@ using GAB.Http.ApiClients;
 
 namespace GAB.Web.Calculations.Api.Controllers
 {
+    using System;
+
+    using GAB.Core.Domain.ResourcePlanning;
+
     public class CapacityCalculationsController : ApiController
     {
         private readonly EmployeeRecordsApiClient _employeeRecordsApiClient =
@@ -25,19 +29,26 @@ namespace GAB.Web.Calculations.Api.Controllers
         [ResponseType(typeof(Report))]
         public async Task<HttpResponseMessage> CalculateCapacityForResourcePlan([FromBody] ResourcePlan resourcePlan)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid == false)
             {
-                Employee employee = await _employeeRecordsApiClient.GetById(resourcePlan.EmployeeId);
-
-                if (employee == null)
-                    return Request.CreateResponse(HttpStatusCode.NotFound);
-
-                // TODO: calculate based on plan + employee, create report
-
-                return Request.CreateResponse(HttpStatusCode.OK, new Report());
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
             }
 
-            return Request.CreateResponse(HttpStatusCode.BadRequest);
+            Employee employee = await _employeeRecordsApiClient.GetById(resourcePlan.EmployeeId);
+
+            if (employee == null)
+                return Request.CreateResponse(HttpStatusCode.NotFound);
+                
+            double utilizationForEmployeeInPercent = CapacityCalculator.CalculateUtilizationForEmployee(resourcePlan);
+            
+            Report report = new Report {
+                Created = DateTime.UtcNow,
+                EmployeeName = employee.Name,
+                EmployeeDepartment = employee.Department,
+                UtilizationForEmployeeInPercent = utilizationForEmployeeInPercent
+            };
+
+            return Request.CreateResponse(HttpStatusCode.OK, report);
         }
     }
 }

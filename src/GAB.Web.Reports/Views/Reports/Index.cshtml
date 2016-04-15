@@ -1,28 +1,32 @@
 ﻿@using GAB.Core.Domain
+@using GAB.Core.Domain.ResourcePlanning
 @model IEnumerable<GAB.Core.Domain.Report>
 
 @{
     ViewBag.Title = "Summary";
 }
 
-<h2>Summary</h2>
+<h2>Utilization summary</h2>
 
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Id)
-        </th>
+        <th>@Html.DisplayNameFor(model => model.Created)</th>
+        <th>@Html.DisplayNameFor(model => model.EmployeeName)</th>
+        <th>@Html.DisplayNameFor(model => model.EmployeeDepartment)</th>
+        <th>Capacity</th>
+        <th>@Html.DisplayNameFor(model => model.UtilizationForEmployeeInPercent)</th>
         <th></th>
     </tr>
 
     @foreach (Report item in Model)
     {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-            </td>
+            <td>@Html.DisplayFor(modelItem => item.Created)</td>
+            <td>@Html.DisplayFor(modelItem => item.EmployeeName)</td>
+            <td>@Html.DisplayFor(modelItem => item.EmployeeDepartment)</td>
+            <td>@WorkDayConstants.FullWorkDayDurationInHours hrs</td>
+            <td>@Html.DisplayFor(modelItem => item.UtilizationForEmployeeInPercent) %</td>
+            <td></td>
         </tr>
     }
 

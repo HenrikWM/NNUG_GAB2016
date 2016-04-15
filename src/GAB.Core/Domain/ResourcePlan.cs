@@ -22,10 +22,30 @@ namespace GAB.Core.Domain
         {
             return new ResourcePlan
             {
-                From = WorkDayDates.GetStartTime(DateTime.UtcNow),
-                To = WorkDayDates.GetEndTime(DateTime.UtcNow),
+                From = WorkDayDates.GetFullDayStartTime(DateTime.UtcNow),
+                To = WorkDayDates.GetFullDayEndTime(DateTime.UtcNow),
                 EmployeeId = employeeId
             };
+        }
+        
+        public static ResourcePlan Create(string employeeId, string department, DateTime startAt, DateTime endsAt)
+        {
+            EnsureStartAndEndAreOnSameDay(startAt, endsAt);
+
+            return new ResourcePlan
+            {
+                From = startAt,
+                To = endsAt,
+                EmployeeId = employeeId
+            };
+        }
+
+        private static void EnsureStartAndEndAreOnSameDay(DateTime startAt, DateTime endsAt)
+        {
+            if (startAt.Year != endsAt.Year ||
+                startAt.Month != endsAt.Month ||
+                startAt.Day != endsAt.Day)
+                throw new InvalidOperationException(string.Format("{0} and {1} must be on the same day", startAt, endsAt));
         }
     }
 }

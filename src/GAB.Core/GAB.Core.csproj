@@ -52,6 +52,9 @@
     <Compile Include="Domain\Employee.cs" />
     <Compile Include="Domain\Report.cs" />
     <Compile Include="Domain\ResourcePlan.cs" />
+    <Compile Include="Domain\ResourcePlanning\CapacityCalculator.cs" />
+    <Compile Include="Domain\ResourcePlanning\ResourcePlanOverlapping.cs" />
+    <Compile Include="Domain\ResourcePlanning\WorkDayConstants.cs" />
     <Compile Include="Domain\ResourcePlanning\WorkDayDates.cs" />
     <Compile Include="Domain\Role.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -15,12 +15,22 @@ namespace GAB.Web.ResourcePlanning.Api
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
-                name: "ResourcePlanningApi",
+                name: "ResourcePlanningForEmployeeApi",
                 routeTemplate: "api/resourceplanning/plan/employee/{employeeId}",
                 defaults: new
                 {
-                    controller = "ResourcePlanning",
+                    controller = "ResourcePlanningForEmployee",
                     action = "planForEmployee"
+                }
+            );
+
+            config.Routes.MapHttpRoute(
+                name: "ResourcePlanningApi",
+                routeTemplate: "api/resourceplanning/{id}",
+                defaults: new
+                {
+                    controller = "ResourcePlanning",
+                    id = RouteParameter.Optional
                 }
             );
 

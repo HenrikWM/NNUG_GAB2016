@@ -1,0 +1,90 @@
+﻿@using GAB.Core.Domain
+@using GAB.Web.ResourcePlanning.Models
+@model GAB.Web.ResourcePlanning.Models.WorkPlanViewModel
+
+@{
+    ViewBag.Title = "Resource planning";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>Register work period for employee</p>
+<br/>
+
+@using (Html.BeginForm("Save", "ResourcePlans"))
+{
+    <div class="form-horizontal">
+        <h4>New work plan</h4>
+        <hr />
+
+        <div class="form-group">
+            <label for="Employees" class="control-label col-sm-2">Select employee</label><select name="EmployeeId" class="col-sm-3 form-control">
+                @foreach (var emp in Model.Employees)
+                {
+                    <option value="@emp.Id">@emp.Name</option>
+                }
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="StartDate" class="control-label col-sm-2">Date</label><input type="date" name="StartDate" class="col-sm-3 form-control" />
+        </div>
+        <div class="form-group">
+            <label for="StartTime" class="control-label col-sm-2">Starting at </label><input type="time" name="StartTime" class="col-sm-3 form-control" />
+        </div>
+        <div class="form-group">
+            <label for="EndTime" class="control-label col-sm-2">Ending at</label><input type="time" name="EndTime" class="col-sm-3 form-control" />
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<hr/>
+
+<h3>Work plans</h3>
+
+<table class="table">
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Employee Name
+        </th>
+        <th>
+            From
+        </th>
+        <th>
+            To
+        </th>
+        <th>Calculate capacity</th>
+    </tr>
+
+    @foreach (ResourcePlanViewModel item in Model.ResourcePlans)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.From)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.To)
+            </td>
+            <td>
+                @Html.ActionLink("Calculate", "CalculateCapacity", new { id = item.Id }, new { @class = "btn btn-default" })
+            </td>
+        </tr>
+    }
+</table>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
