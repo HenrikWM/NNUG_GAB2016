@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Configuration;
+using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -12,7 +13,7 @@ namespace GAB.Web.EmployeeRecords.Controllers
         // GET: /Employees/
         public async Task<ActionResult> Index()
         {
-            IEnumerable<Employee> employees = null; //TODO: Implement an integration to EmployeeRecordsApi and GetAll
+            IEnumerable<Employee> employees = Enumerable.Empty<Employee>(); //TODO: Implement an integration to EmployeeRecordsApi and GetAll
 
             return View(employees);
         }
